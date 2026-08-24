@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SitoPrima — prima vedi il sito, poi decidi</title>
+    <meta
+      name="description"
+      content="Anteprime di siti web per clienti. Vedi l'idea, poi se ti piace costruiamo il sito vero."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --ink: #1c1916;
+        --muted: #5c564e;
+        --line: #e4d9c8;
+        --accent: #c45c26;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Instrument Sans", system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top right, #fde8d4 0%, transparent 42%),
+          var(--bg);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 72px 24px;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        margin-bottom: 48px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 99px;
+        background: var(--accent);
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 6vw, 3.4rem);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        margin-bottom: 18px;
+      }
+
+      p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+        color: var(--muted);
+        max-width: 38rem;
+      }
+
+      .steps {
+        display: grid;
+        gap: 14px;
+        margin-top: 48px;
+      }
+
+      .step {
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        background: #fffdf8;
+        border-radius: 16px;
+      }
+
+      .step strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      footer {
+        margin-top: 56px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="mark"><span class="dot"></span> SitoPrima</div>
+      <h1>Prima vedi il sito.<br />Poi decidi.</h1>
+      <p>
+        Qui mostriamo anteprime ai clienti: un esempio veloce del sito, senza
+        camera, senza complicazioni. Se l’idea piace, costruiamo il sito vero
+        con dominio e tutto il resto.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <strong>1. Anteprima</strong>
+          Ricevi un link, tipo nome.sitoprima.online, e vedi com’è il sito.
+        </div>
+        <div class="step">
+          <strong>2. Ok del cliente</strong>
+          Se ti convince, partiamo con il progetto vero.
+        </div>
+        <div class="step">
+          <strong>3. Sito finale</strong>
+          Dominio del cliente, hosting e sito pronto.
+        </div>
+      </div>
+      <footer>sitoprima.online — anteprime siti web</footer>
+    </main>
+  </body>
+</html>
