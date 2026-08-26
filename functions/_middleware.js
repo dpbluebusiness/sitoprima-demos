@@ -1,10 +1,14 @@
+const DEMO_SITES = {
+  "ahmed.sitoprima.online": "/ahmed/index.html",
+  "marco.sitoprima.online": "/marco/index.html",
+};
+
 export async function onRequest(context) {
   const url = new URL(context.request.url);
-  const host = url.hostname.toLowerCase();
+  const demoPath = DEMO_SITES[url.hostname.toLowerCase()];
 
-  if (host === "ahmed.sitoprima.online") {
-    const assetUrl = new URL("/ahmed/index.html", url.origin);
-    return context.env.ASSETS.fetch(assetUrl);
+  if (demoPath) {
+    return context.env.ASSETS.fetch(new URL(demoPath, url.origin));
   }
 
   return context.next();

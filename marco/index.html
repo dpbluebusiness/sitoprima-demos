@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Studio Marco — Dentista · anteprima SitoPrima</title>
+    <meta
+      name="description"
+      content="Anteprima sito studio dentistico Dr. Marco. Esempio per cliente — non il sito finale."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8fafb;
+        --white: #ffffff;
+        --ink: #0f172a;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --teal: #0d9488;
+        --teal-dark: #0f766e;
+        --sky: #e0f2fe;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      .banner {
+        background: #ecfdf5;
+        color: #047857;
+        text-align: center;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        border-bottom: 1px solid #a7f3d0;
+      }
+
+      header {
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--teal), #14b8a6);
+        color: white;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .logo-text strong {
+        display: block;
+        font-family: "Source Serif 4", serif;
+        font-size: 1.15rem;
+        line-height: 1.2;
+      }
+
+      .logo-text span {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 24px;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: var(--teal-dark);
+      }
+
+      .header-cta {
+        background: var(--teal);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 10px 18px;
+        border-radius: 10px;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+      }
+
+      .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 56px 24px 64px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: var(--sky);
+        color: #0369a1;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-family: "Source Serif 4", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .hero > div > p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 32rem;
+        margin-bottom: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--teal);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 24px;
+        border-radius: 10px;
+      }
+
+      .btn-outline {
+        background: var(--white);
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      .hero-panel {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+      }
+
+      .hero-panel h2 {
+        font-family: "Source Serif 4", serif;
+        font-size: 1.35rem;
+        margin-bottom: 20px;
+      }
+
+      .slot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.95rem;
+      }
+
+      .slot:last-child {
+        border-bottom: none;
+      }
+
+      .slot .time {
+        color: var(--teal-dark);
+        font-weight: 600;
+      }
+
+      .trust {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 48px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 640px) {
+        .trust {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .trust-item {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .trust-item strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--teal-dark);
+        margin-bottom: 4px;
+      }
+
+      .trust-item span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 64px;
+      }
+
+      .section-title {
+        font-family: "Source Serif 4", serif;
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+      }
+
+      .section-sub {
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .service {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .service-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: #ecfdf5;
+        color: var(--teal-dark);
+        display: grid;
+        place-items: center;
+        font-size: 1.25rem;
+        margin-bottom: 14px;
+      }
+
+      .service h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .service p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .contact-box {
+        background: linear-gradient(135deg, #0f766e, #0d9488);
+        color: white;
+        border-radius: 20px;
+        padding: 40px 32px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      @media (max-width: 640px) {
+        .contact-box {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .contact-box p {
+        opacity: 0.9;
+        margin-top: 8px;
+        font-size: 0.95rem;
+      }
+
+      .contact-box .btn {
+        background: white;
+        color: var(--teal-dark);
+        white-space: nowrap;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 32px 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        background: var(--white);
+      }
+
+      footer a {
+        color: var(--teal-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      Anteprima SitoPrima — esempio studio dentistico per il cliente Marco
+    </div>
+
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">
+            <strong>Studio Marco</strong>
+            <span>Dentista · Roma</span>
+          </div>
+        </div>
+        <nav>
+          <a href="#servizi">Servizi</a>
+          <a href="#studio">Lo studio</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+        <a class="header-cta" href="#contatti">Prenota visita</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Odontoiatria moderna</div>
+        <h1>Il tuo sorriso, curato con calma e precisione.</h1>
+        <p>
+          Visite senza fretta, spiegazioni chiare e tecnologie aggiornate.
+          Lo Studio Marco è pensato per chi cerca un dentista affidabile, in un
+          ambiente pulito e accogliente.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="btn"
+            href="https://wa.me/393000000001?text=Ciao%20Dr.%20Marco%2C%20vorrei%20prenotare%20una%20visita"
+            >Prenota su WhatsApp</a
+          >
+          <a class="btn btn-outline" href="#servizi">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h2>Prossime disponibilità</h2>
+        <div class="slot">
+          <span>Visita di controllo</span>
+          <span class="time">Mar 10:30</span>
+        </div>
+        <div class="slot">
+          <span>Igiene orale</span>
+          <span class="time">Mer 15:00</span>
+        </div>
+        <div class="slot">
+          <span>Prima consulenza</span>
+          <span class="time">Gio 11:15</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="trust-item">
+        <strong>15+</strong>
+        <span>anni di esperienza</span>
+      </div>
+      <div class="trust-item">
+        <strong>4.9</strong>
+        <span>valutazione pazienti</span>
+      </div>
+      <div class="trust-item">
+        <strong>100%</strong>
+        <span>strumenti sterilizzati</span>
+      </div>
+    </div>
+
+    <section id="servizi">
+      <h2 class="section-title">Trattamenti principali</h2>
+      <p class="section-sub">
+        Dalla prevenzione alle cure estetiche, con un piano su misura per te.
+      </p>
+      <div class="services">
+        <div class="service">
+          <div class="service-icon">🦷</div>
+          <h3>Igiene e prevenzione</h3>
+          <p>
+            Pulizia professionale, controlli periodici e consigli per la salute
+            quotidiana del sorriso.
+          </p>
+        </div>
+        <div class="service">
+          <div class="service-icon">✨</div>
+          <h3>Sbiancamento</h3>
+          <p>
+            Trattamenti sicuri per un sorriso più luminoso, con risultati
+            naturali e duraturi.
+          </p>
+        </div>
+        <div class="service">
+          <div class="service-icon">🔧</div>
+          <h3>Impianti e protesi</h3>
+          <p>
+            Soluzioni fisse e removibili per recuperare funzione ed estetica
+            in modo stabile.
+          </p>
+        </div>
+        <div class="service">
+          <div class="service-icon">😊</div>
+          <h3>Odontoiatria estetica</h3>
+          <p>
+            Faccette, otturazioni estetiche e correzioni del sorriso con
+            attenzione al dettaglio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="studio">
+      <h2 class="section-title">Perché scegliere lo Studio Marco</h2>
+      <p class="section-sub">
+        Un team piccolo, tempi rispettati e zero pressione: ti spieghiamo ogni
+        passo prima di iniziare.
+      </p>
+      <div class="services">
+        <div class="service">
+          <h3>Ambiente rilassante</h3>
+          <p>
+            Sale luminose, musica soft e attenzione per chi prova ansia dal
+            dentista.
+          </p>
+        </div>
+        <div class="service">
+          <h3>Preventivi chiari</h3>
+          <p>
+            Costi e tempi comunicati in anticipo, senza sorprese a fine
+            trattamento.
+          </p>
+        </div>
+        <div class="service">
+          <h3>Tecnologia digitale</h3>
+          <p>
+            Radiografie digitali e strumenti moderni per diagnosi più precise e
+            visite più rapide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <div class="contact-box">
+        <div>
+          <h2 class="section-title" style="color: white">Prenota la tua visita</h2>
+          <p>
+            Via Salute 8, Roma · Lun–Ven 9:00–19:00, Sab 9:00–13:00<br />
+            Tel: +39 300 000 0001 · contact@studiomarco-demo.it
+          </p>
+        </div>
+        <a
+          class="btn"
+          href="https://wa.me/393000000001?text=Ciao%20Dr.%20Marco%2C%20vorrei%20prenotare%20una%20visita"
+          >Scrivici ora</a
+        >
+      </div>
+    </section>
+
+    <footer>
+      Anteprima by <a href="https://sitoprima.online">SitoPrima</a> ·
+      marco.sitoprima.online
+    </footer>
+  </body>
+</html>
