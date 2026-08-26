@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahmed Barber — anteprima SitoPrima</title>
+    <meta
+      name="description"
+      content="Anteprima sito barbiere Ahmed. Esempio per cliente — non il sito finale."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f0f0f;
+        --card: #1a1a1a;
+        --gold: #c9a227;
+        --text: #f5f5f5;
+        --muted: #a3a3a3;
+        --line: #2a2a2a;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .banner {
+        background: #1e3a2f;
+        color: #b8e0c8;
+        text-align: center;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      header {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 72px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 24px;
+        }
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 28rem;
+        margin-bottom: 28px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--gold);
+        color: #111;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--line);
+        margin-left: 10px;
+      }
+
+      .hero-card {
+        background: linear-gradient(145deg, #222 0%, #141414 100%);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .hero-card .tag {
+        font-size: 0.75rem;
+        color: var(--gold);
+        margin-bottom: 8px;
+      }
+
+      .hero-card h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 72px;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .service {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .service strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .service span {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      .service p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 8px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 32px 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: var(--gold);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      Anteprima SitoPrima — esempio per il cliente Ahmed, non il sito finale
+    </div>
+
+    <header>
+      <div class="logo">Ahmed <span>Barber</span></div>
+      <nav>
+        <a href="#servizi">Servizi</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Barbiere · Milano</div>
+        <h1>Taglio preciso. Stile che dura.</h1>
+        <p>
+          Prenota in pochi secondi. Ambiente curato, prodotti professionali e
+          un team che ascolta quello che vuoi — senza fronzoli.
+        </p>
+        <a class="btn" href="https://wa.me/393000000000?text=Ciao%20Ahmed%2C%20vorrei%20prenotare"
+          >Prenota su WhatsApp</a
+        >
+        <a class="btn btn-outline" href="#servizi">Vedi servizi</a>
+      </div>
+      <div class="hero-card">
+        <div class="tag">Oggi disponibile</div>
+        <h2>Taglio + barba da €25</h2>
+      </div>
+    </section>
+
+    <section id="servizi">
+      <h2 class="section-title">Servizi</h2>
+      <div class="services">
+        <div class="service">
+          <strong>Taglio classico</strong>
+          <span>€18</span>
+          <p>Consulenza, shampoo e finitura con prodotti premium.</p>
+        </div>
+        <div class="service">
+          <strong>Taglio + barba</strong>
+          <span>€25</span>
+          <p>Rasatura calda, contorno barba e trattamento idratante.</p>
+        </div>
+        <div class="service">
+          <strong>Sfumatura / fade</strong>
+          <span>€22</span>
+          <p>Transizioni pulite, stile moderno o classico.</p>
+        </div>
+        <div class="service">
+          <strong>Ritocco barba</strong>
+          <span>€12</span>
+          <p>Per chi vuole tenere la barba in forma tra un taglio e l’altro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <h2 class="section-title">Dove siamo</h2>
+      <p style="color: var(--muted); max-width: 32rem">
+        Via Example 12, Milano · Lun–Sab 9:00–20:00<br />
+        Tel: +39 300 000 0000
+      </p>
+    </section>
+
+    <footer>
+      Anteprima by <a href="https://sitoprima.online">SitoPrima</a> ·
+      ahmed.sitoprima.online
+    </footer>
+  </body>
+</html>
