@@ -190,6 +190,21 @@
         border: 1px solid var(--line);
       }
 
+      .hero-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-photo {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+      }
+
       .hero-panel {
         background: var(--white);
         border: 1px solid var(--line);
@@ -284,19 +299,50 @@
         background: var(--white);
         border: 1px solid var(--line);
         border-radius: 16px;
-        padding: 24px;
+        overflow: hidden;
       }
 
-      .service-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background: #ecfdf5;
-        color: var(--teal-dark);
+      .service-photo {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .service-body {
+        padding: 20px 24px 24px;
+      }
+
+      .gallery {
         display: grid;
-        place-items: center;
-        font-size: 1.25rem;
-        margin-bottom: 14px;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+      }
+
+      .gallery img:first-child {
+        height: 100%;
+        min-height: 220px;
+      }
+
+      @media (min-width: 769px) {
+        .gallery img:first-child {
+          grid-row: span 2;
+          min-height: 452px;
+        }
       }
 
       .service h3 {
@@ -393,19 +439,27 @@
           <a class="btn btn-outline" href="#servizi">Scopri i servizi</a>
         </div>
       </div>
-      <div class="hero-panel">
-        <h2>Prossime disponibilità</h2>
-        <div class="slot">
-          <span>Visita di controllo</span>
-          <span class="time">Mar 10:30</span>
-        </div>
-        <div class="slot">
-          <span>Igiene orale</span>
-          <span class="time">Mer 15:00</span>
-        </div>
-        <div class="slot">
-          <span>Prima consulenza</span>
-          <span class="time">Gio 11:15</span>
+      <div class="hero-visual">
+        <img
+          class="hero-photo"
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+          alt="Studio dentistico moderno e luminoso"
+          loading="eager"
+        />
+        <div class="hero-panel">
+          <h2>Prossime disponibilità</h2>
+          <div class="slot">
+            <span>Visita di controllo</span>
+            <span class="time">Mar 10:30</span>
+          </div>
+          <div class="slot">
+            <span>Igiene orale</span>
+            <span class="time">Mer 15:00</span>
+          </div>
+          <div class="slot">
+            <span>Prima consulenza</span>
+            <span class="time">Gio 11:15</span>
+          </div>
         </div>
       </div>
     </section>
@@ -432,41 +486,94 @@
       </p>
       <div class="services">
         <div class="service">
-          <div class="service-icon">🦷</div>
-          <h3>Igiene e prevenzione</h3>
-          <p>
-            Pulizia professionale, controlli periodici e consigli per la salute
-            quotidiana del sorriso.
-          </p>
+          <img
+            class="service-photo"
+            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+            alt="Visita di igiene dentale"
+            loading="lazy"
+          />
+          <div class="service-body">
+            <h3>Igiene e prevenzione</h3>
+            <p>
+              Pulizia professionale, controlli periodici e consigli per la
+              salute quotidiana del sorriso.
+            </p>
+          </div>
         </div>
         <div class="service">
-          <div class="service-icon">✨</div>
-          <h3>Sbiancamento</h3>
-          <p>
-            Trattamenti sicuri per un sorriso più luminoso, con risultati
-            naturali e duraturi.
-          </p>
+          <img
+            class="service-photo"
+            src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=600&q=80"
+            alt="Sorriso luminoso dopo trattamento"
+            loading="lazy"
+          />
+          <div class="service-body">
+            <h3>Sbiancamento</h3>
+            <p>
+              Trattamenti sicuri per un sorriso più luminoso, con risultati
+              naturali e duraturi.
+            </p>
+          </div>
         </div>
         <div class="service">
-          <div class="service-icon">🔧</div>
-          <h3>Impianti e protesi</h3>
-          <p>
-            Soluzioni fisse e removibili per recuperare funzione ed estetica
-            in modo stabile.
-          </p>
+          <img
+            class="service-photo"
+            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+            alt="Strumenti dentali moderni"
+            loading="lazy"
+          />
+          <div class="service-body">
+            <h3>Impianti e protesi</h3>
+            <p>
+              Soluzioni fisse e removibili per recuperare funzione ed estetica
+              in modo stabile.
+            </p>
+          </div>
         </div>
         <div class="service">
-          <div class="service-icon">😊</div>
-          <h3>Odontoiatria estetica</h3>
-          <p>
-            Faccette, otturazioni estetiche e correzioni del sorriso con
-            attenzione al dettaglio.
-          </p>
+          <img
+            class="service-photo"
+            src="https://images.unsplash.com/photo-1598256989800-fe5a99a68413?auto=format&fit=crop&w=600&q=80"
+            alt="Odontoiatria estetica"
+            loading="lazy"
+          />
+          <div class="service-body">
+            <h3>Odontoiatria estetica</h3>
+            <p>
+              Faccette, otturazioni estetiche e correzioni del sorriso con
+              attenzione al dettaglio.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="studio">
+      <h2 class="section-title">Il nostro studio</h2>
+      <p class="section-sub">
+        Spazi curati, luce naturale e attrezzature aggiornate per sentirti a
+        tuo agio fin dal primo ingresso.
+      </p>
+      <div class="gallery">
+        <img
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80"
+          alt="Sala attesa dello studio"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1606811977920-06d856b88271?auto=format&fit=crop&w=600&q=80"
+          alt="Dentista durante una visita"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1579684385127-1ef15b5a0959?auto=format&fit=crop&w=600&q=80"
+          alt="Attrezzature dentali professionali"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section>
       <h2 class="section-title">Perché scegliere lo Studio Marco</h2>
       <p class="section-sub">
         Un team piccolo, tempi rispettati e zero pressione: ti spieghiamo ogni
@@ -474,25 +581,31 @@
       </p>
       <div class="services">
         <div class="service">
-          <h3>Ambiente rilassante</h3>
-          <p>
-            Sale luminose, musica soft e attenzione per chi prova ansia dal
-            dentista.
-          </p>
+          <div class="service-body">
+            <h3>Ambiente rilassante</h3>
+            <p>
+              Sale luminose, musica soft e attenzione per chi prova ansia dal
+              dentista.
+            </p>
+          </div>
         </div>
         <div class="service">
-          <h3>Preventivi chiari</h3>
-          <p>
-            Costi e tempi comunicati in anticipo, senza sorprese a fine
-            trattamento.
-          </p>
+          <div class="service-body">
+            <h3>Preventivi chiari</h3>
+            <p>
+              Costi e tempi comunicati in anticipo, senza sorprese a fine
+              trattamento.
+            </p>
+          </div>
         </div>
         <div class="service">
-          <h3>Tecnologia digitale</h3>
-          <p>
-            Radiografie digitali e strumenti moderni per diagnosi più precise e
-            visite più rapide.
-          </p>
+          <div class="service-body">
+            <h3>Tecnologia digitale</h3>
+            <p>
+              Radiografie digitali e strumenti moderni per diagnosi più precise
+              e visite più rapide.
+            </p>
+          </div>
         </div>
       </div>
     </section>

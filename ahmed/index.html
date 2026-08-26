@@ -138,14 +138,38 @@
       }
 
       .hero-card {
-        background: linear-gradient(145deg, #222 0%, #141414 100%);
-        border: 1px solid var(--line);
+        position: relative;
         border-radius: 24px;
-        padding: 32px;
-        min-height: 320px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        overflow: hidden;
+        min-height: 380px;
+        border: 1px solid var(--line);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0.2) 55%,
+          transparent 100%
+        );
+      }
+
+      .hero-card-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 28px 32px;
       }
 
       .hero-card .tag {
@@ -157,6 +181,26 @@
       .hero-card h2 {
         font-family: "Playfair Display", serif;
         font-size: 1.6rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 640px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid var(--line);
       }
 
       section {
@@ -240,8 +284,37 @@
         <a class="btn btn-outline" href="#servizi">Vedi servizi</a>
       </div>
       <div class="hero-card">
-        <div class="tag">Oggi disponibile</div>
-        <h2>Taglio + barba da €25</h2>
+        <img
+          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80"
+          alt="Interno del barbiere Ahmed"
+          loading="eager"
+        />
+        <div class="hero-card-overlay"></div>
+        <div class="hero-card-content">
+          <div class="tag">Oggi disponibile</div>
+          <h2>Taglio + barba da €25</h2>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Il locale</h2>
+      <div class="gallery">
+        <img
+          src="https://images.unsplash.com/photo-1622286342621-4bd786a91797?auto=format&fit=crop&w=600&q=80"
+          alt="Taglio di capelli professionale"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1503950197899-0a680227f627?auto=format&fit=crop&w=600&q=80"
+          alt="Strumenti da barbiere"
+          loading="lazy"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1599351431200-1a0ad3596225?auto=format&fit=crop&w=600&q=80"
+          alt="Rasatura barba con cura"
+          loading="lazy"
+        />
       </div>
     </section>
 
