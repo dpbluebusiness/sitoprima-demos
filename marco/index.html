@@ -2,11 +2,15 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Studio Marco — Dentista · anteprima SitoPrima</title>
+    <script>
+      if (location.pathname.startsWith("/marco")) {
+        history.replaceState(null, "", "/");
+      }
+    </script>
+    <title>Studio Marco — Dentista · Roma</title>
     <meta
       name="description"
-      content="Anteprima sito studio dentistico Dr. Marco. Esempio per cliente — non il sito finale."
+      content="Studio dentistico Dr. Marco a Roma. Visite, igiene, sbiancamento e odontoiatria estetica."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

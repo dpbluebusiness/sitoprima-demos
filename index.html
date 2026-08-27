@@ -2,6 +2,18 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
+    <script>
+      (function () {
+        var host = location.hostname.toLowerCase();
+        var path = location.pathname;
+        if (path !== "/" && path !== "/index.html") return;
+        var targets = {
+          "marco.sitoprima.online": "/marco/",
+          "ahmed.sitoprima.online": "/ahmed/",
+        };
+        if (targets[host]) location.replace(targets[host]);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SitoPrima — prima vedi il sito, poi decidi</title>
     <meta
