@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SitoPrima — prima vedi il sito, poi decidi</title>
+    <title>SitoPrima | تصميم مواقع احترافية في السعودية</title>
     <meta
       name="description"
-      content="Anteprime di siti web per clienti. Vedi l'idea, poi se ti piace costruiamo il sito vero."
+      content="نصمم مواقع إلكترونية عالية الجودة بأسعار مناسبة. إنشاء موقع جديد، إعادة تصميم، أو تعديل موقعك الحالي. معاينة قبل الموافقة."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #f6f1e8;
-        --ink: #1c1916;
-        --muted: #5c564e;
-        --line: #e4d9c8;
-        --accent: #c45c26;
+        --bg: #faf9f6;
+        --white: #ffffff;
+        --ink: #1a1f2e;
+        --muted: #5c6478;
+        --line: #e8e4dc;
+        --accent: #0d6e5f;
+        --accent-light: #e6f5f2;
+        --gold: #c9a227;
+        --wa: #25d366;
       }
 
       * {
@@ -30,61 +34,218 @@
       }
 
       body {
-        min-height: 100vh;
-        font-family: "Instrument Sans", system-ui, sans-serif;
-        background:
-          radial-gradient(circle at top right, #fde8d4 0%, transparent 42%),
-          var(--bg);
+        font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+        background: var(--bg);
         color: var(--ink);
+        line-height: 1.7;
       }
 
-      main {
-        max-width: 720px;
+      .wrap {
+        max-width: 920px;
         margin: 0 auto;
-        padding: 72px 24px;
+        padding: 0 20px;
       }
 
-      .mark {
-        display: inline-flex;
+      header {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        display: flex;
         align-items: center;
         gap: 10px;
         font-weight: 700;
-        letter-spacing: -0.03em;
-        margin-bottom: 48px;
+        font-size: 1.15rem;
       }
 
-      .dot {
+      .logo-dot {
         width: 10px;
         height: 10px;
-        border-radius: 99px;
+        border-radius: 50%;
         background: var(--accent);
       }
 
-      h1 {
-        font-size: clamp(2.2rem, 6vw, 3.4rem);
-        line-height: 1.05;
-        letter-spacing: -0.05em;
-        margin-bottom: 18px;
+      .btn-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--wa);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.92rem;
+        padding: 11px 20px;
+        border-radius: 12px;
+        white-space: nowrap;
       }
 
-      p {
-        font-size: 1.15rem;
-        line-height: 1.6;
+      .hero {
+        padding: 40px 0 48px;
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-block;
+        background: var(--accent-light);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: clamp(1.85rem, 5vw, 2.75rem);
+        line-height: 1.25;
+        font-weight: 700;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
         color: var(--muted);
-        max-width: 38rem;
+        font-size: 1.05rem;
+        max-width: 34rem;
+        margin: 0 auto 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 12px;
+      }
+
+      .btn-outline {
+        display: inline-block;
+        background: var(--white);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 12px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .section-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      .section-sub {
+        color: var(--muted);
+        text-align: center;
+        margin-bottom: 28px;
+        font-size: 0.95rem;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--accent-light);
+        display: grid;
+        place-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+      }
+
+      .card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .trust {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .trust-item {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 14px;
+        text-align: center;
+      }
+
+      .trust-item strong {
+        display: block;
+        font-size: 1.4rem;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      .trust-item span {
+        font-size: 0.82rem;
+        color: var(--muted);
       }
 
       .steps {
         display: grid;
-        gap: 14px;
-        margin-top: 48px;
+        gap: 12px;
       }
 
       .step {
-        padding: 18px 20px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        background: var(--white);
         border: 1px solid var(--line);
-        background: #fffdf8;
-        border-radius: 16px;
+        border-radius: 14px;
+        padding: 20px;
+      }
+
+      .step-num {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: white;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 0.95rem;
       }
 
       .step strong {
@@ -92,15 +253,9 @@
         margin-bottom: 4px;
       }
 
-      .examples {
-        margin-top: 32px;
-      }
-
-      .examples h2 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 14px;
-        letter-spacing: -0.02em;
+      .step p {
+        color: var(--muted);
+        font-size: 0.92rem;
       }
 
       .example-list {
@@ -113,9 +268,9 @@
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        padding: 16px 18px;
+        padding: 18px 20px;
         border: 1px solid var(--line);
-        background: #fffdf8;
+        background: var(--white);
         border-radius: 14px;
         text-decoration: none;
         color: inherit;
@@ -124,7 +279,7 @@
 
       .example-card:hover {
         border-color: var(--accent);
-        box-shadow: 0 4px 16px rgba(196, 92, 38, 0.1);
+        box-shadow: 0 4px 20px rgba(13, 110, 95, 0.12);
       }
 
       .example-card strong {
@@ -139,62 +294,220 @@
 
       .example-card em {
         font-style: normal;
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         font-weight: 600;
         color: var(--accent);
-        white-space: nowrap;
+      }
+
+      .cta-box {
+        background: linear-gradient(135deg, #0d6e5f, #0a5248);
+        color: white;
+        border-radius: 20px;
+        padding: 40px 28px;
+        text-align: center;
+        margin: 20px 0 40px;
+      }
+
+      .cta-box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .cta-box p {
+        opacity: 0.92;
+        margin-bottom: 24px;
+        font-size: 0.98rem;
+      }
+
+      .cta-box .btn-wa {
+        font-size: 1rem;
+        padding: 14px 32px;
       }
 
       footer {
-        margin-top: 56px;
+        text-align: center;
+        padding: 32px 0 48px;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.88rem;
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 600px) {
+        .btn-wa span.hide-mobile {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <div class="mark"><span class="dot"></span> SitoPrima</div>
-      <h1>Prima vedi il sito.<br />Poi decidi.</h1>
-      <p>
-        Qui mostriamo anteprime ai clienti: un esempio veloce del sito, senza
-        camera, senza complicazioni. Se l’idea piace, costruiamo il sito vero
-        con dominio e tutto il resto.
-      </p>
-      <div class="steps">
-        <div class="step">
-          <strong>1. Anteprima</strong>
-          Ricevi un link tipo sitoprima.online/nome/ e vedi com’è il sito.
+    <!-- غيّر رقم الواتساب: 966XXXXXXXXX -->
+    <div class="wrap">
+      <header>
+        <div class="logo">
+          <span class="logo-dot"></span>
+          SitoPrima
         </div>
-        <div class="step">
-          <strong>2. Ok del cliente</strong>
-          Se ti convince, partiamo con il progetto vero.
+        <a
+          class="btn-wa"
+          href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D9%81%D9%8A%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A"
+        >
+          <span>💬</span>
+          <span class="hide-mobile">تواصل واتساب</span>
+        </a>
+      </header>
+
+      <section class="hero">
+        <div class="badge">🇸🇦 نخدم العملاء في السعودية</div>
+        <h1>موقع إلكتروني احترافي<br />بجودة عالية وسعر مناسب</h1>
+        <p>
+          نصمم ونطور مواقع إلكترونية لأصحاب المحلات، العيادات، المطاعم،
+          والمشاريع الصغيرة. شاهد نموذج موقعك قبل الموافقة — بدون مفاجآت.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">ابدأ مشروعك</a>
+          <a class="btn-outline" href="#examples">شاهد أمثلة</a>
         </div>
-        <div class="step">
-          <strong>3. Sito finale</strong>
-          Dominio del cliente, hosting e sito pronto.
+      </section>
+
+      <section>
+        <h2 class="section-title">ماذا نقدم لك؟</h2>
+        <p class="section-sub">حلول واضحة — سواء تبدأ من الصفر أو عندك موقع قديم</p>
+        <div class="services">
+          <div class="card">
+            <div class="card-icon">🆕</div>
+            <h3>إنشاء موقع جديد</h3>
+            <p>
+              موقع كامل من الصفر: تصميم، محتوى، متجاوب مع الجوال، وربط واتساب
+              للتواصل مع عملائك.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">✨</div>
+            <h3>إعادة تصميم الموقع</h3>
+            <p>
+              موقعك قديم أو لا يجلب زبائن؟ نعيد بناءه بالكامل بمظهر عصري
+              واحترافي يزيد ثقة العملاء.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔧</div>
+            <h3>تعديل وتحسين</h3>
+            <p>
+              تغيير الألوان، إضافة صفحات، تحسين السرعة، أو تحديث المحتوى —
+              نعدّل موقعك الحالي بدون إعادة البناء كاملاً.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="examples">
-        <h2>Esempi live</h2>
+      </section>
+
+      <section>
+        <h2 class="section-title">لماذا تثق بنا؟</h2>
+        <p class="section-sub">نركز على النتيجة: موقع يخدمك ويزيد مبيعاتك</p>
+        <div class="trust">
+          <div class="trust-item">
+            <strong>👁️</strong>
+            <span>معاينة قبل الدفع</span>
+          </div>
+          <div class="trust-item">
+            <strong>📱</strong>
+            <span>متوافق مع الجوال</span>
+          </div>
+          <div class="trust-item">
+            <strong>💰</strong>
+            <span>أسعار واضحة</span>
+          </div>
+          <div class="trust-item">
+            <strong>⚡</strong>
+            <span>تسليم سريع</span>
+          </div>
+          <div class="trust-item">
+            <strong>💬</strong>
+            <span>دعم واتساب مباشر</span>
+          </div>
+          <div class="trust-item">
+            <strong>🔒</strong>
+            <span>بدون التزام مسبق</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">كيف نشتغل؟</h2>
+        <p class="section-sub">ثلاث خطوات بسيطة — بدون تعقيد</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">١</div>
+            <div>
+              <strong>تواصل معنا على واتساب</strong>
+              <p>
+                أخبرنا عن مشروعك: محل، عيادة، مطعم، أو أي نشاط. نفهم احتياجك
+                ونقترح الحل المناسب.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٢</div>
+            <div>
+              <strong>نشاركك معاينة للموقع</strong>
+              <p>
+                نرسل لك رابط لترى شكل موقعك قبل ما توافق. تعدّل ما تريد —
+                لحد ما يعجبك التصميم.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٣</div>
+            <div>
+              <strong>نطلق موقعك الرسمي</strong>
+              <p>
+                بعد موافقتك، نبني النسخة النهائية على دومينك الخاص، جاهزة
+                للنشر والاستخدام.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="examples">
+        <h2 class="section-title">أمثلة حية</h2>
+        <p class="section-sub">شاهد نماذج مواقع أنشأناها — اضغط لتجربة</p>
         <div class="example-list">
           <a class="example-card" href="/marco/" target="_blank" rel="noopener">
             <div>
-              <strong>Studio Marco</strong>
-              <span>Dentista · Roma</span>
+              <strong>عيادة مارco — طب أسنان</strong>
+              <span>نموذج لعيادة أو مركز طبي</span>
             </div>
-            <em>Apri demo →</em>
+            <em>شاهد ←</em>
           </a>
           <a class="example-card" href="/ahmed/" target="_blank" rel="noopener">
             <div>
-              <strong>Ahmed Barber</strong>
-              <span>Barbiere · Milano</span>
+              <strong>صالون Ahmed — حلاقة</strong>
+              <span>نموذج لصالون أو محل خدمات</span>
             </div>
-            <em>Apri demo →</em>
+            <em>شاهد ←</em>
           </a>
         </div>
-      </div>
-      <footer>sitoprima.online — anteprime siti web</footer>
-    </main>
+      </section>
+
+      <section id="contact">
+        <div class="cta-box">
+          <h2>جاهز لموقع يمثّل مشروعك؟</h2>
+          <p>
+            راسلنا على واتساب — نرد بسرعة، نناقش فكرتك، ونعطيك عرض سعر
+            واضح بدون التزام.
+          </p>
+          <a
+            class="btn-wa"
+            href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D9%81%D9%8A%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A"
+          >
+            💬 تواصل واتساب الآن
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        SitoPrima · تصميم مواقع إلكترونية · sitoprima.online
+      </footer>
+    </div>
   </body>
 </html>
