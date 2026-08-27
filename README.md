@@ -1,27 +1,25 @@
 # sitoprima-demos
 
-Anteprime siti web per clienti su **sitoprima.online**.
+Anteprime siti web per clienti.
 
-## Link cliente (Marco — dentista)
+## Link demo clienti
 
-Dopo la configurazione Cloudflare:
+| Cliente | Link |
+|---|---|
+| Marco (dentista) | https://sitoprima.online/marco/ |
+| Ahmed (barbiere) | https://sitoprima.online/ahmed/ |
 
-**https://marco.sitoprima.online**
+Homepage studio: https://sitoprima.online
 
-## Configurazione Cloudflare per Marco (importante)
+## Nuovo cliente in 5 minuti
 
-Il progetto principale `sitoprima-demos` serve la homepage. Per far funzionare
-`marco.sitoprima.online` in modo affidabile, crea un **secondo progetto** Cloudflare:
+Leggi **[NUOVO-CLIENTE.md](./NUOVO-CLIENTE.md)** oppure:
 
-1. Cloudflare → **Workers & Pages** → **Create** → **Connect to Git**
-2. Repo: **dpbluebusiness/sitoprima-demos**
-3. Nome progetto: **marco-sitoprima**
-4. **Root directory / Percorso:** `marco`
-5. Build command: *(vuoto)*
-6. Deploy
-7. **Custom domains** → aggiungi **marco.sitoprima.online**
-8. Nel progetto **sitoprima-demos** → rimuovi **marco.sitoprima.online** se presente (evita conflitti)
+```powershell
+.\new-client.ps1 -Nome "luigi" -BusinessName "Trattoria Luigi" -Tipo "Ristorante" -Citta "Roma"
+git add luigi && git commit -m "Add demo: Trattoria Luigi" && git push
+```
 
-Il sito Marco è nella cartella `marco/` — nessun routing speciale necessario.
+**Niente redirect. Niente nuovo dominio.** Solo cartella + push.
 
-Nabdplus (`frontend` / `backend`) non va toccato.
+Nabdplus (`nabdplus.shop`) non si tocca.

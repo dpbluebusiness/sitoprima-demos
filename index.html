@@ -2,18 +2,6 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <script>
-      (function () {
-        var host = location.hostname.toLowerCase();
-        var path = location.pathname;
-        if (path !== "/" && path !== "/index.html") return;
-        var targets = {
-          "marco.sitoprima.online": "/marco/",
-          "ahmed.sitoprima.online": "/ahmed/",
-        };
-        if (targets[host]) location.replace(targets[host]);
-      })();
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SitoPrima — prima vedi il sito, poi decidi</title>
     <meta
@@ -136,21 +124,11 @@
       </div>
       <div class="steps" style="margin-top: 32px">
         <div class="step">
-          <strong>Esempi live</strong>
-          <a href="https://ahmed.sitoprima.online" style="color: var(--accent)"
-            >ahmed.sitoprima.online</a
-          >
-          — barbiere<br />
-          <a href="https://marco.sitoprima.online" style="color: var(--accent)"
-            >marco.sitoprima.online</a
-          >
+          <strong>Demo clienti</strong>
+          <a href="/marco/" style="color: var(--accent)">sitoprima.online/marco/</a>
           — dentista<br />
-          <span style="color: var(--muted); font-size: 0.95rem"
-            >Se il sottodominio non carica: usa
-            <a href="/marco/" style="color: var(--accent)">sitoprima.online/marco/</a>
-            o
-            <a href="/ahmed/" style="color: var(--accent)">/ahmed/</a></span
-          >
+          <a href="/ahmed/" style="color: var(--accent)">sitoprima.online/ahmed/</a>
+          — barbiere
         </div>
       </div>
       <footer>sitoprima.online — anteprime siti web</footer>
