@@ -85,7 +85,46 @@
 
       .hero {
         padding: 40px 0 48px;
-        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+      }
+
+      .hero-content {
+        text-align: right;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          text-align: center;
+        }
+      }
+
+      .hero-photo {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 40px rgba(26, 31, 46, 0.08);
+      }
+
+      @media (max-width: 768px) {
+        .hero-photo {
+          height: 220px;
+        }
       }
 
       .badge {
@@ -111,14 +150,68 @@
         color: var(--muted);
         font-size: 1.05rem;
         max-width: 34rem;
-        margin: 0 auto 28px;
+        margin: 0 0 28px;
+      }
+
+      @media (max-width: 768px) {
+        .hero p {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        justify-content: center;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 640px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+      }
+
+      .example-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 18px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 14px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        overflow: hidden;
+      }
+
+      .example-thumb {
+        width: 88px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
+
+      .example-body {
+        flex: 1;
+        min-width: 0;
       }
 
       .btn-primary {
@@ -263,20 +356,6 @@
         gap: 10px;
       }
 
-      .example-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 18px 20px;
-        border: 1px solid var(--line);
-        background: var(--white);
-        border-radius: 14px;
-        text-decoration: none;
-        color: inherit;
-        transition: border-color 0.15s, box-shadow 0.15s;
-      }
-
       .example-card:hover {
         border-color: var(--accent);
         box-shadow: 0 4px 20px rgba(13, 110, 95, 0.12);
@@ -297,6 +376,7 @@
         font-size: 0.85rem;
         font-weight: 600;
         color: var(--accent);
+        white-space: nowrap;
       }
 
       .cta-box {
@@ -357,16 +437,24 @@
       </header>
 
       <section class="hero">
-        <div class="badge">🇸🇦 نخدم العملاء في السعودية</div>
-        <h1>موقع إلكتروني احترافي<br />بجودة عالية وسعر مناسب</h1>
-        <p>
-          نصمم ونطور مواقع إلكترونية لأصحاب المحلات، العيادات، المطاعم،
-          والمشاريع الصغيرة. شاهد نموذج موقعك قبل الموافقة — بدون مفاجآت.
-        </p>
-        <div class="hero-actions">
-          <a class="btn-primary" href="#contact">ابدأ مشروعك</a>
-          <a class="btn-outline" href="#examples">شاهد أمثلة</a>
+        <div class="hero-content">
+          <div class="badge">🇸🇦 نخدم العملاء في السعودية</div>
+          <h1>موقع إلكتروني احترافي<br />بجودة عالية وسعر مناسب</h1>
+          <p>
+            نصمم ونطور مواقع إلكترونية لأصحاب المحلات، العيادات، المطاعم،
+            والمشاريع الصغيرة. شاهد نموذج موقعك قبل الموافقة — بدون مفاجآت.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#contact">ابدأ مشروعك</a>
+            <a class="btn-outline" href="#examples">شاهد أمثلة</a>
+          </div>
         </div>
+        <img
+          class="hero-photo"
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+          alt="نموذج موقع عيادة"
+          loading="eager"
+        />
       </section>
 
       <section>
@@ -471,16 +559,60 @@
       <section id="examples">
         <h2 class="section-title">أمثلة حية</h2>
         <p class="section-sub">شاهد نماذج مواقع أنشأناها — اضغط لتجربة</p>
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+            alt="نموذج عيادة"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=600&q=80"
+            alt="تصميم عيادة"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=80"
+            alt="نموذج صالون"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1622286342621-4bd786a91797?auto=format&fit=crop&w=600&q=80"
+            alt="صالون حلاقة"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1503950197899-0a680227f627?auto=format&fit=crop&w=600&q=80"
+            alt="خدمات صالون"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1599351431200-1a0ad3596225?auto=format&fit=crop&w=600&q=80"
+            alt="تصميم احترافي"
+            loading="lazy"
+          />
+        </div>
         <div class="example-list">
           <a class="example-card" href="/marco/" target="_blank" rel="noopener">
-            <div>
-              <strong>عيادة مارco — طب أسنان</strong>
+            <img
+              class="example-thumb"
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=200&q=80"
+              alt="عيادة مارco"
+              loading="lazy"
+            />
+            <div class="example-body">
+              <strong>عيادة Marco — طب أسنان</strong>
               <span>نموذج لعيادة أو مركز طبي</span>
             </div>
             <em>شاهد ←</em>
           </a>
           <a class="example-card" href="/ahmed/" target="_blank" rel="noopener">
-            <div>
+            <img
+              class="example-thumb"
+              src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=200&q=80"
+              alt="صالون Ahmed"
+              loading="lazy"
+            />
+            <div class="example-body">
               <strong>صالون Ahmed — حلاقة</strong>
               <span>نموذج لصالون أو محل خدمات</span>
             </div>
