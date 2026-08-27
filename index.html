@@ -158,17 +158,56 @@
         text-align: center;
       }
 
-      .profile-photo-wrap {
+      .profile-photo-outer {
+        position: relative;
         width: 100%;
         max-width: 280px;
         margin: 0 auto 16px;
         aspect-ratio: 1;
+      }
+
+      .profile-photo-outer::before {
+        content: "";
+        position: absolute;
+        inset: -24px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.15) 30%,
+          rgba(232, 185, 35, 0.2) 50%,
+          transparent 72%
+        );
+        filter: blur(22px);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .profile-photo-outer::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow:
+          0 0 18px rgba(255, 255, 255, 0.12),
+          0 0 36px rgba(232, 185, 35, 0.18);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .profile-photo-wrap {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
         overflow: hidden;
         border: 3px solid var(--accent);
         box-shadow:
-          0 0 0 4px var(--bg),
-          0 0 40px var(--accent-glow),
+          0 0 0 2px rgba(255, 255, 255, 0.25),
+          0 0 30px rgba(255, 255, 255, 0.08),
+          0 0 50px rgba(232, 185, 35, 0.22),
           0 20px 50px rgba(0, 0, 0, 0.5);
       }
 
@@ -639,7 +678,7 @@
           justify-content: center;
         }
 
-        .profile-photo-wrap {
+        .profile-photo-outer {
           max-width: 200px;
         }
       }
@@ -697,13 +736,15 @@
           </div>
         </div>
         <div class="profile-card">
-          <div class="profile-photo-wrap">
-            <img
-              class="profile-photo"
-              src="/assets/ilyas-profile.png"
-              alt="إلياس قدّوري"
-              loading="eager"
-            />
+          <div class="profile-photo-outer">
+            <div class="profile-photo-wrap">
+              <img
+                class="profile-photo"
+                src="/assets/ilyas-profile.png"
+                alt="إلياس قدّوري"
+                loading="eager"
+              />
+            </div>
           </div>
           <div class="profile-tags">
             <span class="profile-tag">🌐 مواقع</span>
