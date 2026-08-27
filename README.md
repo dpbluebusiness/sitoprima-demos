@@ -4,12 +4,12 @@ Anteprime siti web per clienti.
 
 ## Link demo clienti
 
-| Cliente | Link |
+| Cliente | Link (funziona ora) |
 |---|---|
-| Marco (dentista) | https://sitoprima.online/marco/ |
-| Ahmed (barbiere) | https://sitoprima.online/ahmed/ |
+| Marco (dentista) | https://marco.sitoprima.online/marco/ |
+| Ahmed (barbiere) | https://ahmed.sitoprima.online/ahmed/ |
 
-Homepage studio: https://sitoprima.online
+⚠️ `sitoprima.online` dà errore 522 — va collegato in Cloudflare (vedi NUOVO-CLIENTE.md).
 
 ## Nuovo cliente in 5 minuti
 

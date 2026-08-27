@@ -1,90 +1,70 @@
 # Nuovo cliente in 5 minuti
 
-Zero redirect. Zero nuovo dominio. Zero EasyPanel.
+## ⚠️ IMPORTANTE — quale link funziona ORA
 
-## Link che mandi al cliente
+Ho verificato adesso (27 ago 2026):
+
+| Link | Funziona? |
+|---|---|
+| `https://sitoprima.online/marco/` | ❌ **NO** — errore 522 (dominio non collegato) |
+| `https://sitoprima.online/` | ❌ **NO** — stesso errore |
+| **`https://marco.sitoprima.online/marco/`** | ✅ **SÌ** — sito Marco ok |
+| `https://sitoprima-demos.dp-blue-business.workers.dev/marco/` | ✅ SÌ — ma brutto per il cliente |
+
+### Link da mandare al cliente (finché non sistemi sitoprima.online):
 
 ```
-https://sitoprima.online/NOME/
+https://marco.sitoprima.online/marco/
 ```
 
-Esempio: `https://sitoprima.online/luigi/`
+Sostituisci `marco` con il nome del cliente.
 
 ---
 
-## Metodo veloce (script)
+## Sistemare sitoprima.online (una volta sola)
 
-Apri PowerShell nella cartella del progetto:
+Il dominio **sitoprima.online** non è collegato al progetto Cloudflare.
+
+1. Cloudflare → **Workers & Pages** → **sitoprima-demos**
+2. **Custom domains** → **Add**
+3. Aggiungi: **`sitoprima.online`** e **`www.sitoprima.online`**
+4. Aspetta 5–10 minuti
+5. Prova: `https://sitoprima.online/marco/`
+
+Dopo questo fix, il link pulito `sitoprima.online/nome/` funzionerà.
+
+---
+
+## Creare nuovo cliente
 
 ```powershell
 cd "C:\Users\Ilyas\Desktop\sitoprima-demos"
 
 .\new-client.ps1 -Nome "luigi" -BusinessName "Trattoria Luigi" -Tipo "Ristorante" -Citta "Roma"
-```
 
-Poi pubblica:
-
-```powershell
 git add luigi
 git commit -m "Add demo: Trattoria Luigi"
 git push
 ```
 
-Aspetta 2–3 minuti. Apri `https://sitoprima.online/luigi/`
+Link demo (dopo push):
+- **Ora:** `https://luigi.sitoprima.online/luigi/` *(se aggiungi subdomain in Cloudflare)*
+- **Dopo fix sitoprima.online:** `https://sitoprima.online/luigi/`
 
 ---
 
-## Metodo manuale (senza script)
-
-1. Copia cartella `_template/` → rinomina in `luigi/`
-2. Apri `luigi/index.html` e sostituisci i testi (cerca `{{` per i placeholder se usi template grezzo, oppure modifica direttamente)
-3. Cambia foto: sostituisci i link Unsplash con altre immagini
-4. Cambia numero WhatsApp nel link `wa.me/39...`
-5. Push su GitHub (vedi comandi sopra)
-6. Aggiungi link in `index.html` (homepage SitoPrima) se vuoi
-
----
-
-## Cosa personalizzare per ogni cliente
-
-| Campo | Esempio |
-|---|---|
-| Nome cartella | `luigi` (minuscolo, senza spazi) |
-| Nome attività | Trattoria Luigi |
-| Tipo | Ristorante, dentista, barbiere… |
-| Città | Roma |
-| Titolo hero | "Sapori autentici, ogni giorno." |
-| WhatsApp | 393XXXXXXXXX |
-| Colori | cambia `--brand` nel CSS |
-| Foto | link Unsplash o foto del cliente |
-
----
-
-## Demo già online
-
-| Cliente | Link |
-|---|---|
-| Marco (dentista) | https://sitoprima.online/marco/ |
-| Ahmed (barbiere) | https://sitoprima.online/ahmed/ |
-
----
-
-## Messaggio WhatsApp da copiare al cliente
+## Messaggio WhatsApp al cliente
 
 ```
 Buongiorno,
 ecco l'anteprima del sito:
-https://sitoprima.online/NOME/
+https://marco.sitoprima.online/marco/
 
 Mi dica se le piace lo stile.
-Se va bene, prepariamo la versione finale con il suo dominio.
 ```
 
 ---
 
 ## Dopo che il cliente accetta
 
-Allora sì: dominio nuovo, EasyPanel, GitHub repo dedicato, sito vero.
-La demo su sitoprima.online resta solo come anteprima.
-
-Nabdplus (`nabdplus.shop`) non si tocca.
+Dominio suo + EasyPanel + sito vero. Nabdplus non si tocca.
