@@ -92,6 +92,59 @@
         margin-bottom: 4px;
       }
 
+      .examples {
+        margin-top: 32px;
+      }
+
+      .examples h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
+      }
+
+      .example-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .example-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        background: #fffdf8;
+        border-radius: 14px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+      .example-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 16px rgba(196, 92, 38, 0.1);
+      }
+
+      .example-card strong {
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .example-card span {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .example-card em {
+        font-style: normal;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
       footer {
         margin-top: 56px;
         color: var(--muted);
@@ -111,7 +164,7 @@
       <div class="steps">
         <div class="step">
           <strong>1. Anteprima</strong>
-          Ricevi un link, tipo nome.sitoprima.online, e vedi com’è il sito.
+          Ricevi un link tipo sitoprima.online/nome/ e vedi com’è il sito.
         </div>
         <div class="step">
           <strong>2. Ok del cliente</strong>
@@ -122,13 +175,23 @@
           Dominio del cliente, hosting e sito pronto.
         </div>
       </div>
-      <div class="steps" style="margin-top: 32px">
-        <div class="step">
-          <strong>Demo clienti</strong>
-          <a href="/marco/" style="color: var(--accent)">sitoprima.online/marco/</a>
-          — dentista<br />
-          <a href="/ahmed/" style="color: var(--accent)">sitoprima.online/ahmed/</a>
-          — barbiere
+      <div class="examples">
+        <h2>Esempi live</h2>
+        <div class="example-list">
+          <a class="example-card" href="/marco/" target="_blank" rel="noopener">
+            <div>
+              <strong>Studio Marco</strong>
+              <span>Dentista · Roma</span>
+            </div>
+            <em>Apri demo →</em>
+          </a>
+          <a class="example-card" href="/ahmed/" target="_blank" rel="noopener">
+            <div>
+              <strong>Ahmed Barber</strong>
+              <span>Barbiere · Milano</span>
+            </div>
+            <em>Apri demo →</em>
+          </a>
         </div>
       </div>
       <footer>sitoprima.online — anteprime siti web</footer>
