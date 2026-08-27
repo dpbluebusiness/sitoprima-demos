@@ -1,0 +1,8 @@
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/marco/*
+  Cache-Control: public, max-age=3600
+
+/ahmed/*
+  Cache-Control: public, max-age=3600
