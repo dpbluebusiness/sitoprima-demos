@@ -16,7 +16,7 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='48' font-family='Arial' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E"
+      href="assets/logo.png"
     />
     <style>
       :root {
@@ -1009,6 +1009,128 @@
       }
       .fab:hover { transform: scale(1.1); }
 
+      .logo-img {
+        height: 44px;
+        width: auto;
+        display: block;
+      }
+
+      .preloader-logo {
+        width: min(200px, 50vw);
+        height: auto;
+        animation: pulseLoad 1.2s ease infinite alternate;
+      }
+
+      .hero-logo {
+        position: absolute;
+        top: 96px;
+        right: clamp(20px, 5vw, 64px);
+        z-index: 3;
+        width: clamp(100px, 14vw, 140px);
+        opacity: 0;
+        animation: fadeUp 1s var(--ease-out) 0.4s forwards;
+      }
+
+      .services-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        background: var(--line);
+        margin-bottom: 56px;
+      }
+
+      .service-card {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        background: var(--charcoal);
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s var(--ease-out);
+      }
+
+      .service-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .service-card-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px 20px;
+        background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 55%);
+      }
+
+      .service-card-label span {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .service-card-label small {
+        font-size: 0.78rem;
+        color: var(--silver-dim);
+        margin-top: 4px;
+      }
+
+      .review-user {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .review-user img {
+        width: 44px;
+        height: 44px;
+        border-radius: 6px;
+        object-fit: cover;
+        border: 1px solid var(--line-bright);
+      }
+
+      .review-user cite {
+        font-style: normal;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+      }
+
+      .review-card > cite {
+        display: none;
+      }
+
+      .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      @media (max-width: 1024px) {
+        .services-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .services-gallery {
+          grid-template-columns: 1fr;
+        }
+        .service-card {
+          aspect-ratio: 16/10;
+        }
+        .hero-logo {
+          top: 88px;
+          width: 90px;
+        }
+      }
+
       @media (max-width: 1024px) {
         nav { display: none; }
         .hero-stats { display: none; }
@@ -1028,14 +1150,13 @@
   </head>
   <body>
     <div class="preloader" id="preloader">
-      <div class="preloader-text">SHARP LOOK</div>
+      <img class="preloader-logo" src="assets/logo.png" alt="Sharp Look" />
     </div>
     <div class="grain"></div>
 
     <header id="header">
       <a class="logo" href="#">
-        <span class="logo-main">SHARP LOOK</span>
-        <span class="logo-sub">EST. 2003</span>
+        <img class="logo-img" src="assets/logo.png" alt="Sharp Look" />
       </a>
       <nav>
         <a href="#locations">الفروع</a>
@@ -1050,9 +1171,10 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-bg">
-        <img src="assets/hero.jpg" alt="" loading="eager" />
+        <img src="assets/banner.jpg" alt="Sharp Look salon" loading="eager" />
       </div>
       <div class="hero-vignette"></div>
+      <img class="hero-logo" src="assets/logo.png" alt="Sharp Look" />
 
       <div class="hero-stats">
         <div>
@@ -1077,7 +1199,7 @@
         <h1 class="hero-title">
           SHARP<br /><span class="outline">LOOK</span>
         </h1>
-        <p class="hero-ar">هُنا يُعاد مظهرك — بشكل رائع</p>
+        <p class="hero-ar">هُنا يتم إعادة مظهرك بِشكل رائع</p>
         <div class="hero-bottom">
           <p class="hero-desc">
             Since 2003 inside Hyatt hotels. Expert barbers, immaculate details,
@@ -1128,7 +1250,7 @@
           <div class="loc-num">02</div>
           <div class="loc-city">RIYADH · HITTIN</div>
           <h3>Viewment Hotel</h3>
-          <p>شارع الأمير محمد بن سلمان — فندق Viewment، حي حطin، الرياض.</p>
+          <p>شارع الأمير محمد بن سلمان — فندق Viewment، الرياض.</p>
           <div class="loc-hotel">VIEWMENT HOTEL</div>
         </div>
         <div class="loc-card">
@@ -1154,14 +1276,14 @@
           <p>Highly experienced team since 2003. Every detail matters — we care about the smallest things that set us apart.</p>
         </div>
         <div class="bento-cell span-4 img-cell">
-          <img src="assets/gallery-2.jpg" alt="Expert barber at work" loading="lazy" />
+          <img src="assets/barber-man.jpeg" alt="Sharp Look expert barber" loading="lazy" />
         </div>
         <div class="bento-cell span-4">
           <div class="bento-big-num">2003</div>
           <p style="color:var(--silver-dim);font-size:0.88rem;font-weight:300;">Years of excellence in men's grooming across Saudi Arabia.</p>
         </div>
         <div class="bento-cell span-6 img-cell">
-          <img src="assets/gallery-3.jpg" alt="Premium salon interior" loading="lazy" />
+          <img src="assets/pic-1.jpeg" alt="Hair Cut — Sharp Look" loading="lazy" />
         </div>
         <div class="bento-cell span-6">
           <div class="bento-num">02 — BOOKING</div>
@@ -1175,7 +1297,7 @@
           <p>Sharp Look salons are located inside Hyatt Regency, Viewment, and Grand Hyatt — clean, comfortable, and impeccably fitted out.</p>
         </div>
         <div class="bento-cell span-4 img-cell">
-          <img src="assets/gallery-4.jpg" alt="Grooming experience" loading="lazy" />
+          <img src="assets/pic-2.JPG" alt="Beard Trim Styling — Sharp Look" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1186,6 +1308,36 @@
         <div class="section-label">SERVICES</div>
         <h2 class="section-title">We provide<br /><em>better.</em></h2>
         <p class="section-lead">Transparent pricing. World-class execution. Every service tailored to you.</p>
+      </div>
+      <div class="services-gallery reveal">
+        <div class="service-card">
+          <img src="assets/pic-3.jpeg" alt="Hair Styling" loading="lazy" />
+          <div class="service-card-label">
+            <span>Hair Styling</span>
+            <small>تصفيف الشعر</small>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="assets/pic-2.JPG" alt="Beard Trim Styling" loading="lazy" />
+          <div class="service-card-label">
+            <span>Beard Trim Styling</span>
+            <small>تنسيق الذقن</small>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="assets/pic-1.jpeg" alt="Hair Cut" loading="lazy" />
+          <div class="service-card-label">
+            <span>Hair Cut</span>
+            <small>قص شعر</small>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="assets/pic-4.jpeg" alt="Dry Shampoo" loading="lazy" />
+          <div class="service-card-label">
+            <span>Dry Shampoo</span>
+            <small>شامبو جاف</small>
+          </div>
+        </div>
       </div>
       <div class="services-list reveal">
         <div class="service-row">
@@ -1352,22 +1504,28 @@
       </div>
       <div class="reviews-grid reveal">
         <div class="review-card">
-          <div class="review-quote-mark">"</div>
+          <div class="review-user">
+            <img src="assets/img-1.png" alt="A A" />
+            <cite>A A</cite>
+          </div>
           <div class="review-stars">★★★★★</div>
           <q>الصالون جداً جميل وخصوصاً الحلاق عمر — يحلق الشخص ويطلع مستانس ورايق. استمروا وجيبوا حلاقين مثل هذا المبدع.</q>
-          <cite>— A A</cite>
         </div>
         <div class="review-card">
-          <div class="review-quote-mark">"</div>
+          <div class="review-user">
+            <img src="assets/img-3.png" alt="Yako Wijnands" />
+            <cite>Yako Wijnands</cite>
+          </div>
           <div class="review-stars">★★★★★</div>
           <q>Excellent, friendly and efficient service. Mohammed did a great job. Inside Grand Hyatt — well fitted out, very clean. Strongly recommend.</q>
-          <cite>— Yako Wijnands</cite>
         </div>
         <div class="review-card">
-          <div class="review-quote-mark">"</div>
+          <div class="review-user">
+            <img src="assets/img-2.png" alt="Saud Saleh" />
+            <cite>Saud Saleh</cite>
+          </div>
           <div class="review-stars">★★★★★</div>
           <q>صالون رائع في فندق حياة ريجنسي — من التصميم والإطلالة إلى محمد: تعامل راقي، احترام، وعمل مُتقن بأدق التفاصيل.</q>
-          <cite>— Saud Saleh</cite>
         </div>
       </div>
     </section>
@@ -1375,7 +1533,7 @@
     <!-- CTA -->
     <section class="cta-section" id="contact">
       <div class="cta-bg">
-        <img src="assets/hero.jpg" alt="" loading="lazy" />
+        <img src="assets/banner.jpg" alt="Sharp Look" loading="lazy" />
       </div>
       <div class="cta-content reveal">
         <div class="section-label" style="justify-content:center;">VISIT US</div>
