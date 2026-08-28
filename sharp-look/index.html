@@ -3,1524 +3,1448 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sharp Look | شارب لوك — حلاقة رجالية فاخرة منذ 2003</title>
+    <title>Sharp Look | شارب لوك — The Art of Men's Grooming</title>
     <meta
       name="description"
-      content="شارب لوك — صالون حلاقة رجالية فاخر في الرياض والخبر داخل فنادق Hyatt. منذ 2003. تقييم 4.9. احجز موعدك أونلاين."
+      content="Sharp Look — premium men's grooming in Riyadh & Al Khobar since 2003. Inside Hyatt hotels. Book online."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2306080f'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='36' font-family='Georgia' fill='%23d4d4dc' font-weight='700'%3ESL%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='48' font-family='Arial' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E"
     />
     <style>
       :root {
-        --bg: #06080f;
-        --bg-soft: #0c1019;
-        --surface: rgba(16, 20, 32, 0.82);
-        --surface-solid: #101420;
-        --line: rgba(255, 255, 255, 0.07);
-        --line-plat: rgba(212, 212, 220, 0.22);
-        --text: #f4f4f6;
-        --muted: #8b92a8;
-        --plat: #d4d4dc;
-        --plat-light: #ececf2;
-        --plat-glow: rgba(212, 212, 220, 0.18);
-        --ice: #a8b4d4;
+        --black: #000000;
+        --ink: #070709;
+        --charcoal: #111116;
+        --surface: #16161d;
+        --line: rgba(255, 255, 255, 0.08);
+        --line-bright: rgba(255, 255, 255, 0.18);
+        --white: #ffffff;
+        --silver: #c8ccd8;
+        --silver-dim: #7a8194;
+        --chrome: linear-gradient(135deg, #fff 0%, #b8bcc8 45%, #fff 55%, #9098a8 100%);
         --wa: #25d366;
-        --radius: 18px;
+        --font-hero: "Bebas Neue", sans-serif;
         --font-display: "Cormorant Garamond", "IBM Plex Sans Arabic", serif;
         --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
       body {
         font-family: var(--font-body);
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.65;
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
         overflow-x: hidden;
+        cursor: default;
       }
 
-      .bg-mesh {
+      /* ── PRELOADER ── */
+      .preloader {
         position: fixed;
         inset: 0;
-        z-index: 0;
-        background:
-          radial-gradient(ellipse 80% 55% at 70% -5%, rgba(168, 180, 212, 0.12), transparent 55%),
-          radial-gradient(ellipse 50% 40% at 5% 30%, rgba(212, 212, 220, 0.05), transparent 50%),
-          radial-gradient(ellipse 60% 45% at 50% 110%, rgba(12, 16, 25, 0.95), transparent);
-        pointer-events: none;
+        z-index: 9999;
+        background: var(--black);
+        display: grid;
+        place-items: center;
+        transition: opacity 0.8s var(--ease-out), visibility 0.8s;
       }
+      .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+      .preloader-text {
+        font-family: var(--font-hero);
+        font-size: clamp(3rem, 12vw, 8rem);
+        letter-spacing: 0.2em;
+        background: var(--chrome);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: pulseLoad 1.2s ease infinite alternate;
+      }
+      @keyframes pulseLoad { from { opacity: 0.4; } to { opacity: 1; } }
 
-      .bg-grain {
+      /* ── GRAIN ── */
+      .grain {
+        pointer-events: none;
         position: fixed;
-        inset: 0;
-        z-index: 0;
-        opacity: 0.03;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        pointer-events: none;
+        inset: -50%;
+        z-index: 9990;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        animation: grainShift 8s steps(10) infinite;
+      }
+      @keyframes grainShift {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(-2%, -2%); }
       }
 
-      .page {
-        position: relative;
-        z-index: 1;
-      }
-
+      /* ── HEADER ── */
       header {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        padding: 14px 24px;
+        top: 0; left: 0; right: 0;
+        z-index: 200;
+        padding: 0 clamp(20px, 4vw, 48px);
+        height: 72px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        background: rgba(6, 8, 15, 0.78);
-        backdrop-filter: blur(22px);
-        border-bottom: 1px solid var(--line);
+        transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+        border-bottom: 1px solid transparent;
       }
-
+      header.scrolled {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(20px) saturate(1.4);
+        border-color: var(--line);
+      }
       .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
         text-decoration: none;
         color: inherit;
-      }
-
-      .logo-mark {
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-        border: 1px solid var(--line-plat);
-        display: grid;
-        place-items: center;
-        font-family: var(--font-display);
-        font-weight: 700;
-        color: var(--plat);
-        font-size: 1.05rem;
-        letter-spacing: 0.06em;
-        background: linear-gradient(145deg, rgba(212, 212, 220, 0.08), transparent);
-        box-shadow: 0 0 40px var(--plat-glow);
-      }
-
-      .logo-text strong {
-        display: block;
-        font-family: var(--font-display);
-        font-size: 1.15rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-      }
-
-      .logo-text small {
-        font-size: 0.62rem;
-        color: var(--muted);
-        letter-spacing: 0.18em;
-      }
-
-      nav {
         display: flex;
-        gap: 22px;
-      }
-
-      nav a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 500;
-        transition: color 0.2s;
-      }
-
-      nav a:hover {
-        color: var(--plat);
-      }
-
-      .header-book {
-        background: linear-gradient(135deg, var(--plat-light), var(--plat));
-        color: #0a0a0c;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.88rem;
-        padding: 11px 22px;
-        border-radius: 999px;
-        transition: transform 0.2s, box-shadow 0.2s;
-        white-space: nowrap;
-      }
-
-      .header-book:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 36px var(--plat-glow);
-      }
-
-      .hero {
-        min-height: 100vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px;
-        align-items: center;
-        padding: 120px 24px 80px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
+        align-items: baseline;
         gap: 10px;
-        border: 1px solid var(--line-plat);
-        background: rgba(212, 212, 220, 0.06);
-        color: var(--plat);
-        font-size: 0.78rem;
-        font-weight: 600;
-        padding: 7px 16px;
-        border-radius: 999px;
-        margin-bottom: 22px;
-        letter-spacing: 0.04em;
       }
-
-      .hero-badge span {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--plat);
-        box-shadow: 0 0 12px var(--plat);
-      }
-
-      .hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(3rem, 7vw, 4.8rem);
-        line-height: 1.05;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        margin-bottom: 8px;
-      }
-
-      .hero h1 em {
-        font-style: italic;
-        color: var(--plat);
-      }
-
-      .hero-ar {
-        font-size: 1.35rem;
-        color: var(--ice);
-        font-weight: 600;
-        margin-bottom: 18px;
-      }
-
-      .hero-desc {
-        color: var(--muted);
-        font-size: 1.05rem;
-        max-width: 28rem;
-        margin-bottom: 32px;
-      }
-
-      .hero-stats {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 28px;
-        margin-bottom: 36px;
-      }
-
-      .hero-stat strong {
-        display: block;
-        font-family: var(--font-display);
-        font-size: 2rem;
-        color: var(--plat);
+      .logo-main {
+        font-family: var(--font-hero);
+        font-size: 1.6rem;
+        letter-spacing: 0.12em;
         line-height: 1;
       }
-
-      .hero-stat span {
+      .logo-sub {
+        font-size: 0.62rem;
+        letter-spacing: 0.25em;
+        color: var(--silver-dim);
+        font-weight: 500;
+      }
+      nav { display: flex; gap: clamp(16px, 3vw, 36px); }
+      nav a {
+        color: var(--silver-dim);
+        text-decoration: none;
         font-size: 0.78rem;
-        color: var(--muted);
+        font-weight: 500;
         letter-spacing: 0.06em;
+        transition: color 0.25s;
+        position: relative;
       }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px; left: 0; right: 0;
+        height: 1px;
+        background: var(--white);
+        transform: scaleX(0);
+        transition: transform 0.3s var(--ease-out);
       }
-
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: linear-gradient(135deg, var(--plat-light), var(--plat));
-        color: #0a0a0c;
-        text-decoration: none;
+      nav a:hover { color: var(--white); }
+      nav a:hover::after { transform: scaleX(1); }
+      .header-cta {
+        font-size: 0.75rem;
         font-weight: 700;
-        padding: 15px 30px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: 0.95rem;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 40px var(--plat-glow);
-      }
-
-      .btn-ghost {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--text);
-        border: 1px solid var(--line-plat);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 12px 24px;
+        background: var(--white);
+        color: var(--black);
         text-decoration: none;
-        font-weight: 600;
-        padding: 15px 28px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.03);
-        font-size: 0.95rem;
-        transition: background 0.2s, border-color 0.2s;
+        border-radius: 0;
+        transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      }
+      .header-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(255,255,255,0.15);
       }
 
-      .btn-ghost:hover {
-        background: rgba(212, 212, 220, 0.08);
-        border-color: var(--plat);
-      }
-
-      .hero-visual {
+      /* ── HERO ── */
+      .hero {
         position: relative;
-      }
-
-      .hero-frame {
-        position: relative;
-        border-radius: 24px;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         overflow: hidden;
-        border: 1px solid var(--line-plat);
-        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55);
-        aspect-ratio: 4/5;
       }
-
-      .hero-frame img {
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-bg img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center 20%;
+        animation: heroKenBurns 20s ease-in-out infinite alternate;
+        transform-origin: center;
       }
-
-      .hero-frame-overlay {
+      @keyframes heroKenBurns {
+        from { transform: scale(1.05); }
+        to { transform: scale(1.15); }
+      }
+      .hero-bg::after {
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(6, 8, 15, 0.92) 0%,
-          rgba(6, 8, 15, 0.15) 50%,
-          transparent 100%
-        );
+        background:
+          linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.55) 100%),
+          linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 60%);
       }
-
-      .hero-frame-label {
+      .hero-vignette {
         position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        padding: 28px;
+        inset: 0;
+        z-index: 1;
+        box-shadow: inset 0 0 120px rgba(0,0,0,0.8);
+        pointer-events: none;
       }
-
-      .hero-frame-label small {
-        display: block;
-        color: var(--ice);
-        font-size: 0.72rem;
-        letter-spacing: 0.14em;
-        margin-bottom: 6px;
-      }
-
-      .hero-frame-label strong {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-      }
-
-      .hero-float {
-        position: absolute;
-        top: -16px;
-        left: -24px;
-        background: var(--surface-solid);
-        border: 1px solid var(--line-plat);
-        border-radius: 16px;
-        padding: 16px 20px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      }
-
-      .hero-float strong {
-        display: block;
-        font-family: var(--font-display);
-        font-size: 1.8rem;
-        color: var(--plat);
-      }
-
-      .hero-float span {
-        font-size: 0.78rem;
-        color: var(--muted);
-      }
-
-      .section {
-        max-width: 1200px;
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        padding: 0 clamp(20px, 5vw, 64px) clamp(48px, 8vh, 80px);
+        width: 100%;
+        max-width: 1400px;
         margin: 0 auto;
-        padding: 80px 24px;
       }
-
-      .section-head {
-        text-align: center;
-        margin-bottom: 48px;
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: clamp(16px, 3vh, 28px);
+        opacity: 0;
+        animation: fadeUp 1s var(--ease-out) 0.5s forwards;
       }
-
-      .section-tag {
-        display: inline-block;
+      .hero-eyebrow-line {
+        width: 48px;
+        height: 1px;
+        background: var(--white);
+      }
+      .hero-eyebrow span {
         font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        color: var(--silver);
+      }
+      .hero-title {
+        font-family: var(--font-hero);
+        font-size: clamp(5rem, 18vw, 14rem);
+        line-height: 0.88;
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+        opacity: 0;
+        animation: fadeUp 1.2s var(--ease-out) 0.65s forwards;
+      }
+      .hero-title .outline {
+        -webkit-text-stroke: 1.5px rgba(255,255,255,0.35);
+        color: transparent;
+      }
+      .hero-ar {
+        font-family: var(--font-display);
+        font-size: clamp(1.4rem, 3vw, 2.2rem);
+        font-weight: 500;
+        font-style: italic;
+        color: var(--silver);
+        margin-bottom: clamp(24px, 4vh, 40px);
+        opacity: 0;
+        animation: fadeUp 1s var(--ease-out) 0.85s forwards;
+      }
+      .hero-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 1s var(--ease-out) 1s forwards;
+      }
+      .hero-desc {
+        max-width: 420px;
+        color: var(--silver-dim);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        font-weight: 300;
+      }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        background: var(--white);
+        color: var(--black);
+        text-decoration: none;
         font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      }
+      .btn-white:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 50px rgba(255,255,255,0.2);
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        background: transparent;
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        border: 1px solid var(--line-bright);
+        transition: background 0.3s, border-color 0.3s;
+      }
+      .btn-outline:hover {
+        background: rgba(255,255,255,0.06);
+        border-color: var(--white);
+      }
+      .hero-stats {
+        position: absolute;
+        top: 50%;
+        left: clamp(20px, 5vw, 64px);
+        transform: translateY(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        opacity: 0;
+        animation: fadeLeft 1s var(--ease-out) 1.2s forwards;
+      }
+      .hero-stat-num {
+        font-family: var(--font-hero);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        background: var(--chrome);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero-stat-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.15em;
+        color: var(--silver-dim);
+        margin-top: 4px;
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        animation: fadeUp 1s var(--ease-out) 1.5s forwards;
+      }
+      .scroll-hint span {
+        font-size: 0.62rem;
         letter-spacing: 0.2em;
-        color: var(--ice);
-        margin-bottom: 12px;
+        color: var(--silver-dim);
+      }
+      .scroll-line {
+        width: 1px;
+        height: 48px;
+        background: linear-gradient(to bottom, var(--white), transparent);
+        animation: scrollPulse 2s ease infinite;
+      }
+      @keyframes scrollPulse {
+        0%, 100% { transform: scaleY(1); opacity: 1; }
+        50% { transform: scaleY(0.5); opacity: 0.4; }
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeLeft {
+        from { opacity: 0; transform: translate(-30px, -50%); }
+        to { opacity: 1; transform: translate(0, -50%); }
       }
 
+      /* ── MARQUEE ── */
+      .marquee-wrap {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 18px 0;
+        overflow: hidden;
+        background: var(--ink);
+      }
+      .marquee-track {
+        display: flex;
+        gap: 0;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      .marquee-track span {
+        font-family: var(--font-hero);
+        font-size: 1.1rem;
+        letter-spacing: 0.2em;
+        color: var(--silver-dim);
+        white-space: nowrap;
+        padding: 0 32px;
+      }
+      .marquee-track span em {
+        font-style: normal;
+        color: var(--white);
+      }
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      /* ── SECTIONS ── */
+      .section {
+        padding: clamp(80px, 12vh, 140px) clamp(20px, 5vw, 64px);
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        color: var(--silver-dim);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .section-label::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--silver-dim);
+      }
       .section-title {
         font-family: var(--font-display);
-        font-size: clamp(2rem, 4vw, 2.8rem);
-        font-weight: 700;
-        margin-bottom: 10px;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--silver);
+      }
+      .section-lead {
+        color: var(--silver-dim);
+        font-size: 1rem;
+        max-width: 520px;
+        line-height: 1.85;
+        font-weight: 300;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(48px);
+        transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
-      .section-sub {
-        color: var(--muted);
-        font-size: 0.98rem;
-        max-width: 32rem;
-        margin: 0 auto;
+      /* ── LOCATIONS ── */
+      .locations-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-bottom: clamp(40px, 6vh, 64px);
       }
-
-      .locations-grid {
+      .loc-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        gap: 2px;
+        background: var(--line);
       }
-
       .loc-card {
-        background: var(--surface-solid);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 28px 24px;
-        transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        background: var(--charcoal);
+        padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
         position: relative;
         overflow: hidden;
+        transition: background 0.4s;
+        group: loc;
       }
-
       .loc-card::before {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--plat), transparent);
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent);
         opacity: 0;
-        transition: opacity 0.25s;
+        transition: opacity 0.4s;
       }
-
-      .loc-card:hover {
-        border-color: var(--line-plat);
-        transform: translateY(-4px);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      .loc-card:hover { background: var(--surface); }
+      .loc-card:hover::before { opacity: 1; }
+      .loc-num {
+        font-family: var(--font-hero);
+        font-size: 4rem;
+        color: rgba(255,255,255,0.04);
+        line-height: 1;
+        margin-bottom: 20px;
+        transition: color 0.4s;
       }
-
-      .loc-card:hover::before {
-        opacity: 1;
-      }
-
+      .loc-card:hover .loc-num { color: rgba(255,255,255,0.08); }
       .loc-city {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         font-weight: 700;
-        letter-spacing: 0.12em;
-        color: var(--ice);
-        margin-bottom: 10px;
+        letter-spacing: 0.2em;
+        color: var(--silver-dim);
+        margin-bottom: 12px;
       }
-
       .loc-card h3 {
         font-family: var(--font-display);
-        font-size: 1.25rem;
-        margin-bottom: 10px;
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        font-weight: 600;
+        margin-bottom: 12px;
       }
-
       .loc-card p {
-        color: var(--muted);
+        color: var(--silver-dim);
         font-size: 0.88rem;
-        line-height: 1.7;
+        line-height: 1.75;
+        font-weight: 300;
       }
-
       .loc-hotel {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: 16px;
-        font-size: 0.78rem;
-        color: var(--plat);
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        color: var(--silver);
         font-weight: 600;
       }
 
-      .why-grid {
+      /* ── EXPERIENCE BENTO ── */
+      .bento {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+        gap: 2px;
+        background: var(--line);
+        margin-top: clamp(40px, 6vh, 64px);
       }
-
-      .why-card {
-        background: linear-gradient(160deg, rgba(212, 212, 220, 0.06), transparent);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 32px 26px;
+      .bento-cell {
+        background: var(--charcoal);
+        padding: clamp(28px, 4vw, 44px);
+        position: relative;
+        overflow: hidden;
       }
-
-      .why-icon {
-        font-size: 1.8rem;
+      .bento-cell.span-4 { grid-column: span 4; }
+      .bento-cell.span-6 { grid-column: span 6; }
+      .bento-cell.span-8 { grid-column: span 8; }
+      .bento-cell.span-12 { grid-column: span 12; }
+      .bento-cell.img-cell {
+        padding: 0;
+        min-height: 320px;
+      }
+      .bento-cell.img-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s var(--ease-out);
+      }
+      .bento-cell.img-cell:hover img { transform: scale(1.06); }
+      .bento-num {
+        font-family: var(--font-hero);
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        color: var(--silver-dim);
         margin-bottom: 16px;
       }
-
-      .why-card h3 {
-        font-size: 1.05rem;
+      .bento-cell h3 {
+        font-family: var(--font-display);
+        font-size: clamp(1.3rem, 2vw, 1.8rem);
         margin-bottom: 10px;
       }
-
-      .why-card p {
-        color: var(--muted);
+      .bento-cell p {
+        color: var(--silver-dim);
         font-size: 0.88rem;
         line-height: 1.75;
+        font-weight: 300;
+      }
+      .bento-big-num {
+        font-family: var(--font-hero);
+        font-size: clamp(4rem, 8vw, 7rem);
+        line-height: 1;
+        background: var(--chrome);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
       }
 
-      /* Booking */
+      /* ── SERVICES LIST ── */
+      .services-list { margin-top: 48px; }
+      .service-row {
+        display: grid;
+        grid-template-columns: 60px 1fr auto auto;
+        align-items: center;
+        gap: 24px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        transition: padding-right 0.4s var(--ease-out);
+        cursor: default;
+      }
+      .service-row:hover { padding-right: 12px; }
+      .service-row:first-child { border-top: 1px solid var(--line); }
+      .service-num {
+        font-family: var(--font-hero);
+        font-size: 1rem;
+        color: var(--silver-dim);
+        letter-spacing: 0.1em;
+      }
+      .service-row h3 {
+        font-family: var(--font-display);
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        font-weight: 500;
+      }
+      .service-row h3 small {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        color: var(--silver-dim);
+        font-weight: 400;
+        margin-top: 4px;
+      }
+      .service-dur {
+        font-size: 0.78rem;
+        color: var(--silver-dim);
+        letter-spacing: 0.06em;
+      }
+      .service-price {
+        font-family: var(--font-hero);
+        font-size: 1.4rem;
+        letter-spacing: 0.06em;
+        min-width: 80px;
+        text-align: left;
+      }
+
+      /* ── BOOKING ── */
       #book {
-        background: linear-gradient(180deg, transparent, rgba(12, 16, 25, 0.6), transparent);
+        background: var(--ink);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: clamp(80px, 12vh, 120px) clamp(20px, 5vw, 64px);
       }
-
+      .book-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .book-wrap .section-title { text-align: center; margin-bottom: 8px; }
+      .book-wrap .section-lead { text-align: center; margin: 0 auto 48px; }
       .book-widget {
-        background: var(--surface-solid);
-        border: 1px solid var(--line-plat);
-        border-radius: 24px;
+        border: 1px solid var(--line-bright);
+        background: var(--charcoal);
+        position: relative;
         overflow: hidden;
-        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
       }
-
+      .book-widget::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 40%, rgba(255,255,255,0.06));
+        pointer-events: none;
+      }
       .book-steps {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         border-bottom: 1px solid var(--line);
+        position: relative;
       }
-
       .book-step-tab {
+        padding: 20px 16px;
+        background: transparent;
+        border: none;
+        color: var(--silver-dim);
+        font-family: inherit;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        padding: 20px 16px;
-        background: transparent;
-        border: none;
-        color: var(--muted);
-        font-family: inherit;
-        font-size: 0.88rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        transition: color 0.3s, background 0.3s;
         border-left: 1px solid var(--line);
       }
-
-      .book-step-tab:first-child {
-        border-left: none;
-      }
-
+      .book-step-tab:first-child { border-left: none; }
       .book-step-tab.active {
-        background: rgba(212, 212, 220, 0.06);
-        color: var(--plat);
+        color: var(--white);
+        background: rgba(255,255,255,0.04);
       }
-
-      .book-step-tab.done {
-        color: var(--ice);
-      }
-
       .book-step-num {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 1px solid currentColor;
-        display: grid;
-        place-items: center;
-        font-size: 0.75rem;
+        font-family: var(--font-hero);
+        font-size: 1rem;
+        letter-spacing: 0.06em;
+        opacity: 0.5;
       }
-
-      .book-step-tab.active .book-step-num {
-        background: var(--plat);
-        color: #0a0a0c;
-        border-color: var(--plat);
-      }
-
-      .book-body {
-        padding: 32px 28px 28px;
-      }
-
-      .book-panel {
-        display: none;
-      }
-
-      .book-panel.active {
-        display: block;
-        animation: fadeUp 0.35s ease;
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
+      .book-step-tab.active .book-step-num { opacity: 1; }
+      .book-body { padding: 36px 32px 32px; position: relative; }
+      .book-panel { display: none; }
+      .book-panel.active { display: block; animation: fadeUp 0.4s var(--ease-out); }
       .panel-title {
-        font-size: 0.82rem;
+        font-size: 0.68rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        color: var(--muted);
+        letter-spacing: 0.2em;
+        color: var(--silver-dim);
         margin-bottom: 16px;
       }
-
       .location-pick {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 8px;
         margin-bottom: 28px;
       }
-
-      .loc-opt {
-        cursor: pointer;
-      }
-
-      .loc-opt input {
-        position: absolute;
-        opacity: 0;
-      }
-
+      .loc-opt { cursor: pointer; }
+      .loc-opt input { position: absolute; opacity: 0; }
       .loc-opt-box {
         display: block;
-        padding: 16px 14px;
+        padding: 16px 12px;
         border: 1px solid var(--line);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.02);
-        transition: border-color 0.2s, background 0.2s;
         text-align: center;
+        transition: border-color 0.25s, background 0.25s;
       }
-
-      .loc-opt-box strong {
-        display: block;
-        font-size: 0.88rem;
-        margin-bottom: 4px;
-      }
-
-      .loc-opt-box small {
-        font-size: 0.72rem;
-        color: var(--muted);
-      }
-
+      .loc-opt-box strong { display: block; font-size: 0.82rem; margin-bottom: 4px; }
+      .loc-opt-box small { font-size: 0.68rem; color: var(--silver-dim); }
       .loc-opt.selected .loc-opt-box,
       .loc-opt input:checked + .loc-opt-box {
-        border-color: var(--plat);
-        background: rgba(212, 212, 220, 0.08);
+        border-color: var(--white);
+        background: rgba(255,255,255,0.05);
       }
-
       .service-options {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        max-height: 340px;
+        gap: 6px;
+        max-height: 300px;
         overflow-y: auto;
-        padding-left: 4px;
       }
-
       .service-opt {
         display: flex;
         align-items: center;
         gap: 14px;
-        padding: 16px 18px;
-        border: 1px solid var(--line);
-        border-radius: 14px;
+        padding: 14px 16px;
+        border: 1px solid transparent;
         cursor: pointer;
         transition: border-color 0.2s, background 0.2s;
       }
-
-      .service-opt:hover,
-      .service-opt.selected {
-        border-color: var(--line-plat);
-        background: rgba(212, 212, 220, 0.05);
+      .service-opt:hover, .service-opt.selected {
+        border-color: var(--line);
+        background: rgba(255,255,255,0.03);
       }
-
-      .service-opt input {
-        position: absolute;
-        opacity: 0;
-      }
-
+      .service-opt input { position: absolute; opacity: 0; }
       .service-radio {
-        width: 20px;
-        height: 20px;
+        width: 18px; height: 18px;
+        border: 1px solid var(--silver-dim);
         border-radius: 50%;
-        border: 2px solid var(--muted);
         flex-shrink: 0;
         position: relative;
       }
-
-      .service-opt.selected .service-radio {
-        border-color: var(--plat);
-      }
-
+      .service-opt.selected .service-radio { border-color: var(--white); }
       .service-opt.selected .service-radio::after {
         content: "";
         position: absolute;
         inset: 4px;
         border-radius: 50%;
-        background: var(--plat);
+        background: var(--white);
       }
-
-      .service-info {
-        flex: 1;
-      }
-
-      .service-info strong {
-        display: block;
-        font-size: 0.95rem;
-      }
-
-      .service-info small {
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .service-price {
-        text-align: left;
-      }
-
-      .service-price em {
-        display: block;
+      .service-info { flex: 1; }
+      .service-info strong { font-size: 0.9rem; font-weight: 500; }
+      .service-info small { color: var(--silver-dim); font-size: 0.72rem; }
+      .service-opt .service-price em {
         font-style: normal;
-        font-weight: 700;
-        color: var(--plat);
-        font-size: 1rem;
+        font-family: var(--font-hero);
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
       }
-
-      .service-price span {
-        font-size: 0.68rem;
-        color: var(--muted);
-        letter-spacing: 0.08em;
-      }
-
-      .date-grid,
-      .time-grid {
+      .date-grid, .time-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+        gap: 6px;
         margin-bottom: 24px;
       }
-
-      .date-btn,
-      .time-btn {
-        padding: 12px 8px;
+      .date-btn, .time-btn {
+        padding: 12px 6px;
         border: 1px solid var(--line);
-        border-radius: 12px;
         background: transparent;
-        color: var(--text);
+        color: var(--white);
         font-family: inherit;
+        font-size: 0.82rem;
         cursor: pointer;
         transition: border-color 0.2s, background 0.2s;
       }
-
-      .date-btn strong {
-        display: block;
-        font-size: 1.1rem;
+      .date-btn strong { display: block; font-size: 1rem; }
+      .date-btn span { font-size: 0.62rem; color: var(--silver-dim); }
+      .date-btn.selected, .time-btn.selected {
+        border-color: var(--white);
+        background: rgba(255,255,255,0.08);
       }
-
-      .date-btn span {
-        font-size: 0.68rem;
-        color: var(--muted);
-      }
-
-      .date-btn.selected,
-      .time-btn.selected {
-        border-color: var(--plat);
-        background: rgba(212, 212, 220, 0.1);
-      }
-
       .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin-bottom: 20px;
+        gap: 12px;
+        margin-bottom: 16px;
       }
-
-      .form-field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .form-field.full {
-        grid-column: 1 / -1;
-      }
-
+      .form-field { display: flex; flex-direction: column; gap: 6px; }
+      .form-field.full { grid-column: 1 / -1; }
       .form-field label {
-        font-size: 0.78rem;
+        font-size: 0.68rem;
         font-weight: 600;
-        color: var(--muted);
+        letter-spacing: 0.1em;
+        color: var(--silver-dim);
       }
-
-      .form-field input,
-      .form-field select {
-        padding: 13px 16px;
+      .form-field input, .form-field select {
+        padding: 14px 16px;
         border: 1px solid var(--line);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--text);
+        background: rgba(255,255,255,0.03);
+        color: var(--white);
         font-family: inherit;
-        font-size: 0.92rem;
-      }
-
-      .form-field input:focus,
-      .form-field select:focus {
+        font-size: 0.9rem;
         outline: none;
-        border-color: var(--plat);
+        transition: border-color 0.2s;
       }
-
+      .form-field input:focus, .form-field select:focus { border-color: var(--line-bright); }
       .summary-box {
-        background: rgba(212, 212, 220, 0.05);
         border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 18px 20px;
+        padding: 20px;
         margin-bottom: 20px;
       }
-
       .summary-row {
         display: flex;
         justify-content: space-between;
-        gap: 12px;
-        padding: 6px 0;
-        font-size: 0.88rem;
+        padding: 7px 0;
+        font-size: 0.85rem;
+        border-bottom: 1px solid var(--line);
       }
-
-      .summary-row span {
-        color: var(--muted);
-      }
-
+      .summary-row:last-child { border-bottom: none; }
+      .summary-row span { color: var(--silver-dim); }
       .btn-confirm {
         width: 100%;
-        padding: 16px;
-        border: none;
-        border-radius: 14px;
+        padding: 18px;
         background: var(--wa);
         color: white;
+        border: none;
         font-family: inherit;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 700;
+        letter-spacing: 0.06em;
         cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
         margin-bottom: 12px;
-        transition: transform 0.2s, box-shadow 0.2s;
       }
-
       .btn-confirm:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.3);
+        box-shadow: 0 16px 40px rgba(37,211,102,0.3);
       }
-
-      .book-nav {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .btn-back,
-      .btn-next {
-        padding: 12px 24px;
-        border-radius: 999px;
+      .book-nav { display: flex; justify-content: space-between; margin-top: 20px; }
+      .btn-back, .btn-next {
+        padding: 12px 28px;
         font-family: inherit;
+        font-size: 0.78rem;
         font-weight: 600;
-        font-size: 0.88rem;
+        letter-spacing: 0.06em;
         cursor: pointer;
         border: 1px solid var(--line);
         background: transparent;
-        color: var(--muted);
+        color: var(--silver-dim);
       }
-
       .btn-next {
         margin-right: auto;
-        background: linear-gradient(135deg, var(--plat-light), var(--plat));
-        color: #0a0a0c;
-        border: none;
+        background: var(--white);
+        color: var(--black);
+        border-color: var(--white);
       }
+      .btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+      .hidden { display: none; }
 
-      .btn-next:disabled {
-        opacity: 0.4;
-        cursor: not-allowed;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 220px 220px;
-        gap: 12px;
-      }
-
-      .gallery-grid img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: var(--radius);
-        border: 1px solid var(--line);
-      }
-
-      .gallery-grid img:first-child {
-        grid-row: span 2;
-      }
-
+      /* ── TEAM ── */
       .team-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+        gap: 2px;
+        background: var(--line);
+        margin-top: 48px;
       }
-
       .team-card {
-        background: var(--surface-solid);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 28px 20px;
+        background: var(--charcoal);
+        padding: 40px 24px;
         text-align: center;
-        transition: border-color 0.2s;
+        transition: background 0.3s;
       }
-
-      .team-card:hover {
-        border-color: var(--line-plat);
-      }
-
+      .team-card:hover { background: var(--surface); }
       .team-avatar {
-        width: 64px;
-        height: 64px;
+        width: 72px; height: 72px;
         border-radius: 50%;
-        margin: 0 auto 14px;
-        background: linear-gradient(145deg, rgba(212, 212, 220, 0.15), rgba(168, 180, 212, 0.08));
-        border: 1px solid var(--line-plat);
+        margin: 0 auto 20px;
+        border: 1px solid var(--line-bright);
         display: grid;
         place-items: center;
         font-family: var(--font-display);
-        font-size: 1.5rem;
-        color: var(--plat);
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--silver);
       }
+      .team-card strong { display: block; font-size: 1rem; margin-bottom: 6px; }
+      .team-card span { font-size: 0.75rem; color: var(--silver-dim); }
 
-      .team-card strong {
-        display: block;
-        margin-bottom: 4px;
-      }
-
-      .team-card span {
-        font-size: 0.78rem;
-        color: var(--muted);
-      }
-
-      .reviews-scroll {
+      /* ── REVIEWS ── */
+      .reviews-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
+        gap: 2px;
+        background: var(--line);
+        margin-top: 48px;
       }
-
       .review-card {
-        background: var(--surface-solid);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 26px 22px;
+        background: var(--charcoal);
+        padding: clamp(32px, 4vw, 48px);
+        position: relative;
       }
-
-      .review-stars {
-        color: var(--plat);
-        letter-spacing: 3px;
-        margin-bottom: 12px;
-        font-size: 0.85rem;
-      }
-
-      .review-card q {
-        display: block;
-        color: var(--muted);
-        font-size: 0.9rem;
-        quotes: none;
-        line-height: 1.75;
+      .review-quote-mark {
+        font-family: var(--font-display);
+        font-size: 5rem;
+        line-height: 0.6;
+        color: rgba(255,255,255,0.06);
         margin-bottom: 16px;
       }
-
+      .review-stars { color: var(--white); letter-spacing: 4px; font-size: 0.75rem; margin-bottom: 16px; }
+      .review-card q {
+        display: block;
+        color: var(--silver);
+        font-size: 0.92rem;
+        line-height: 1.85;
+        quotes: none;
+        font-weight: 300;
+        margin-bottom: 24px;
+      }
       .review-card cite {
         font-style: normal;
-        font-size: 0.8rem;
-        color: var(--text);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        color: var(--silver-dim);
         font-weight: 600;
       }
 
-      .contact-strip {
-        background: linear-gradient(135deg, rgba(212, 212, 220, 0.08), rgba(168, 180, 212, 0.04));
-        border: 1px solid var(--line-plat);
-        border-radius: 24px;
-        padding: 48px 32px;
+      /* ── CTA ── */
+      .cta-section {
+        position: relative;
+        min-height: 60vh;
+        display: grid;
+        place-items: center;
         text-align: center;
+        overflow: hidden;
       }
-
-      .contact-strip h2 {
-        font-family: var(--font-display);
-        font-size: 2rem;
-        margin-bottom: 10px;
+      .cta-bg {
+        position: absolute;
+        inset: 0;
       }
-
-      .contact-meta {
+      .cta-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.35);
+      }
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        padding: 48px 24px;
+      }
+      .cta-content .section-title { margin-bottom: 16px; }
+      .cta-content p { color: var(--silver-dim); margin-bottom: 32px; font-weight: 300; }
+      .cta-meta {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px 36px;
-        margin-top: 28px;
-        font-size: 0.92rem;
-      }
-
-      .contact-meta a {
-        color: var(--plat);
-        text-decoration: none;
-      }
-
-      .social-row {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      .social-row a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 20px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        color: var(--muted);
-        text-decoration: none;
+        gap: 24px 40px;
+        margin-top: 40px;
         font-size: 0.85rem;
-        transition: border-color 0.2s, color 0.2s;
       }
-
-      .social-row a:hover {
-        border-color: var(--plat);
-        color: var(--plat);
-      }
+      .cta-meta a { color: var(--white); text-decoration: none; }
+      .cta-meta a:hover { text-decoration: underline; }
 
       footer {
-        text-align: center;
-        padding: 36px 24px 48px;
-        color: var(--muted);
-        font-size: 0.82rem;
+        padding: 32px clamp(20px, 5vw, 64px);
         border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        color: var(--silver-dim);
+      }
+      footer strong {
+        font-family: var(--font-hero);
+        font-size: 1rem;
+        letter-spacing: 0.15em;
+        color: var(--white);
       }
 
       .fab {
         position: fixed;
-        bottom: 24px;
-        left: 24px;
-        z-index: 90;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
+        bottom: 28px;
+        left: 28px;
+        z-index: 150;
+        width: 54px; height: 54px;
         background: var(--wa);
         color: white;
+        border-radius: 50%;
         display: grid;
         place-items: center;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         text-decoration: none;
-        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
-        transition: transform 0.2s;
+        box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+        transition: transform 0.3s var(--ease-out);
       }
+      .fab:hover { transform: scale(1.1); }
 
-      .fab:hover {
-        transform: scale(1.08);
+      @media (max-width: 1024px) {
+        nav { display: none; }
+        .hero-stats { display: none; }
+        .loc-cards, .team-grid, .reviews-grid, .location-pick { grid-template-columns: 1fr; }
+        .bento-cell.span-4, .bento-cell.span-6, .bento-cell.span-8 { grid-column: span 12; }
+        .service-row { grid-template-columns: 40px 1fr; gap: 12px; }
+        .service-dur, .service-price { display: none; }
+        .book-steps { grid-template-columns: 1fr; }
+        .book-step-tab { border-left: none; border-bottom: 1px solid var(--line); }
+        .form-grid { grid-template-columns: 1fr; }
       }
-
-      @media (max-width: 960px) {
-        nav {
-          display: none;
-        }
-
-        .hero {
-          grid-template-columns: 1fr;
-          padding-top: 100px;
-          min-height: auto;
-        }
-
-        .hero-visual {
-          order: -1;
-        }
-
-        .hero-frame {
-          aspect-ratio: 16/10;
-        }
-
-        .hero-float {
-          top: auto;
-          bottom: -12px;
-          left: 16px;
-        }
-
-        .locations-grid,
-        .why-grid,
-        .team-grid,
-        .reviews-scroll,
-        .location-pick {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto;
-        }
-
-        .gallery-grid img:first-child {
-          grid-row: auto;
-          height: 260px;
-        }
-
-        .gallery-grid img {
-          height: 200px;
-        }
-
-        .book-steps {
-          grid-template-columns: 1fr;
-        }
-
-        .book-step-tab {
-          border-left: none;
-          border-bottom: 1px solid var(--line);
-        }
-
-        .form-grid {
-          grid-template-columns: 1fr;
-        }
+      @media (max-width: 640px) {
+        .hero-title { font-size: clamp(4rem, 22vw, 7rem); }
+        .scroll-hint { display: none; }
       }
     </style>
   </head>
   <body>
-    <div class="bg-mesh"></div>
-    <div class="bg-grain"></div>
+    <div class="preloader" id="preloader">
+      <div class="preloader-text">SHARP LOOK</div>
+    </div>
+    <div class="grain"></div>
 
-    <div class="page">
-      <header>
-        <a class="logo" href="#">
-          <div class="logo-mark">SL</div>
-          <div class="logo-text">
-            <strong>Sharp Look</strong>
-            <small>PREMIUM GROOMING · EST. 2003</small>
-          </div>
-        </a>
-        <nav>
-          <a href="#locations">الفروع</a>
-          <a href="#book">احجز</a>
-          <a href="#services">الخدمات</a>
-          <a href="#team">الفريق</a>
-          <a href="#reviews">التقييمات</a>
-        </nav>
-        <a class="header-book" href="#book">احجز موعدك</a>
-      </header>
+    <header id="header">
+      <a class="logo" href="#">
+        <span class="logo-main">SHARP LOOK</span>
+        <span class="logo-sub">EST. 2003</span>
+      </a>
+      <nav>
+        <a href="#locations">الفروع</a>
+        <a href="#experience">التجربة</a>
+        <a href="#services">الخدمات</a>
+        <a href="#book">احجز</a>
+        <a href="#reviews">التقييمات</a>
+      </nav>
+      <a class="header-cta" href="#book">BOOK NOW</a>
+    </header>
 
-      <section class="hero">
-        <div class="hero-content">
-          <div class="hero-badge"><span></span> منذ 2003 · الرياض &amp; الخبر</div>
-          <h1>Sharp <em>Look</em></h1>
-          <p class="hero-ar">هُنا يُعاد مظهرك بشكل رائع</p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="assets/hero.jpg" alt="" loading="eager" />
+      </div>
+      <div class="hero-vignette"></div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">4.9</div>
+          <div class="hero-stat-label">RATING</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">253+</div>
+          <div class="hero-stat-label">REVIEWS</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">2003</div>
+          <div class="hero-stat-label">SINCE</div>
+        </div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span>PREMIUM MEN'S GROOMING · RIYADH & AL KHOBAR</span>
+        </div>
+        <h1 class="hero-title">
+          SHARP<br /><span class="outline">LOOK</span>
+        </h1>
+        <p class="hero-ar">هُنا يُعاد مظهرك — بشكل رائع</p>
+        <div class="hero-bottom">
           <p class="hero-desc">
-            تجربة حلاقة رجالية فاخرة داخل فنادق Hyatt — فريق محترف، تفاصيل
-            دقيقة، وخدمة تليق بك. أكثر من 20 عاماً من التميز في العناية
-            بالرجل السعودي.
+            Since 2003 inside Hyatt hotels. Expert barbers, immaculate details,
+            and a grooming experience worthy of the modern Saudi gentleman.
           </p>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>4.9</strong>
-              <span>تقييم Google &amp; Fresha</span>
-            </div>
-            <div class="hero-stat">
-              <strong>253+</strong>
-              <span>مراجعة من عملاء</span>
-            </div>
-            <div class="hero-stat">
-              <strong>3</strong>
-              <span>فروع في فنادق فاخرة</span>
-            </div>
-          </div>
           <div class="hero-actions">
-            <a class="btn-primary" href="#book">احجز الآن ←</a>
-            <a class="btn-ghost" href="#locations">اعرف الفروع</a>
+            <a class="btn-white" href="#book">احجز موعدك ←</a>
+            <a class="btn-outline" href="#locations">الفروع</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-float">
-            <strong>2003</strong>
-            <span>سنوات من الخبرة</span>
-          </div>
-          <div class="hero-frame">
-            <img src="assets/hero.jpg" alt="Sharp Look — صالون حلاقة فاخر" loading="eager" />
-            <div class="hero-frame-overlay"></div>
-            <div class="hero-frame-label">
-              <small>HYATT REGENCY · RIYADH</small>
-              <strong>Luxury Men's Grooming</strong>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
-      <section class="section" id="locations">
-        <div class="section-head">
-          <div class="section-tag">LOCATIONS</div>
-          <h2 class="section-title">فروعنا</h2>
-          <p class="section-sub">3 مواقع فاخرة في الرياض والخبر — داخل أرقى الفنادق</p>
-        </div>
-        <div class="locations-grid">
-          <div class="loc-card">
-            <div class="loc-city">RIYADH · OLAYA</div>
-            <h3>Hyatt Regency</h3>
-            <p>الرياض، العليا — فندق Hyatt Regency، الدور الثاني. إطلالة وتصميم راقي.</p>
-            <div class="loc-hotel">🏨 Hyatt Regency Hotel</div>
-          </div>
-          <div class="loc-card">
-            <div class="loc-city">RIYADH · HITTIN</div>
-            <h3>Viewment Hotel</h3>
-            <p>الرياض، شارع الأمير محمد بن سلمان بن عبدالعزيز — فندق Viewment.</p>
-            <div class="loc-hotel">🏨 Viewment Hotel</div>
-          </div>
-          <div class="loc-card">
-            <div class="loc-city">AL KHOBAR · OLAYA</div>
-            <h3>Grand Hyatt</h3>
-            <p>الخبر، العليا — فندق Grand Hyatt، الطابق S. نظافة وراحة استثنائية.</p>
-            <div class="loc-hotel">🏨 Grand Hyatt Hotel</div>
-          </div>
-        </div>
-      </section>
+      <div class="scroll-hint">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="section-head">
-          <div class="section-tag">WHY SHARP LOOK</div>
-          <h2 class="section-title">لماذا نحن؟</h2>
-        </div>
-        <div class="why-grid">
-          <div class="why-card">
-            <div class="why-icon">✂️</div>
-            <h3>فريق ذو خبرة</h3>
-            <p>
-              منذ 2003 نقدم خدماتنا الراقية للرجل السعودي — فريق محترف يهتم
-              بأدق التفاصيل التي تميزنا عن غيرنا.
-            </p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">📅</div>
-            <h3>حجز أونلاين</h3>
-            <p>
-              مكانك جاهز ونحن جاهزون! احجز موعدك أونلاين الآن — بدون انتظار،
-              بكل سهولة عبر الموقع أو واتساب.
-            </p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">🏨</div>
-            <h3>مواقع فاخرة</h3>
-            <p>
-              صالوناتنا داخل فنادق Hyatt — بيئة نظيفة، مريحة، ومصممة بأعلى
-              معايير الرفاهية والاحتراف.
-            </p>
-          </div>
-        </div>
-      </section>
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track" aria-hidden="true">
+        <span><em>SHARP LOOK</em> · HYATT REGENCY · GRAND HYATT · SINCE 2003 · 4.9 STARS · PREMIUM GROOMING · RIYADH · AL KHOBAR ·</span>
+        <span><em>SHARP LOOK</em> · HYATT REGENCY · GRAND HYATT · SINCE 2003 · 4.9 STARS · PREMIUM GROOMING · RIYADH · AL KHOBAR ·</span>
+      </div>
+    </div>
 
-      <section class="section" id="book">
-        <div class="section-head">
-          <div class="section-tag">BOOK ONLINE</div>
-          <h2 class="section-title">احجز موعدك</h2>
-          <p class="section-sub">3 خطوات — اختر الفرع، الخدمة، والوقت</p>
+    <!-- LOCATIONS -->
+    <section class="section" id="locations">
+      <div class="locations-header reveal">
+        <div>
+          <div class="section-label">LOCATIONS</div>
+          <h2 class="section-title">Three hotels.<br /><em>One standard.</em></h2>
         </div>
+        <p class="section-lead">
+          فروعنا داخل أرقى فنادق Hyatt في الرياض والخبر — بيئة فاخرة،
+          نظافة مطلقة، وخدمة لا تُضاهى.
+        </p>
+      </div>
+      <div class="loc-cards reveal">
+        <div class="loc-card">
+          <div class="loc-num">01</div>
+          <div class="loc-city">RIYADH · OLAYA</div>
+          <h3>Hyatt Regency</h3>
+          <p>الرياض، العليا — فندق Hyatt Regency، الدور الثاني. إطلالة راقية وتصميم استثنائي.</p>
+          <div class="loc-hotel">HYATT REGENCY HOTEL</div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-num">02</div>
+          <div class="loc-city">RIYADH · HITTIN</div>
+          <h3>Viewment Hotel</h3>
+          <p>شارع الأمير محمد بن سلمان — فندق Viewment، حي حطin، الرياض.</p>
+          <div class="loc-hotel">VIEWMENT HOTEL</div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-num">03</div>
+          <div class="loc-city">AL KHOBAR · OLAYA</div>
+          <h3>Grand Hyatt</h3>
+          <p>الخبر، العليا — فندق Grand Hyatt، الطابق S. نظيف، مريح، ومحترف.</p>
+          <div class="loc-hotel">GRAND HYATT HOTEL</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE BENTO -->
+    <section class="section" id="experience">
+      <div class="reveal">
+        <div class="section-label">THE EXPERIENCE</div>
+        <h2 class="section-title">Crafted for<br /><em>the discerning man.</em></h2>
+      </div>
+      <div class="bento reveal">
+        <div class="bento-cell span-4">
+          <div class="bento-num">01 — TEAM</div>
+          <h3>Expert Barbers</h3>
+          <p>Highly experienced team since 2003. Every detail matters — we care about the smallest things that set us apart.</p>
+        </div>
+        <div class="bento-cell span-4 img-cell">
+          <img src="assets/gallery-2.jpg" alt="Expert barber at work" loading="lazy" />
+        </div>
+        <div class="bento-cell span-4">
+          <div class="bento-big-num">2003</div>
+          <p style="color:var(--silver-dim);font-size:0.88rem;font-weight:300;">Years of excellence in men's grooming across Saudi Arabia.</p>
+        </div>
+        <div class="bento-cell span-6 img-cell">
+          <img src="assets/gallery-3.jpg" alt="Premium salon interior" loading="lazy" />
+        </div>
+        <div class="bento-cell span-6">
+          <div class="bento-num">02 — BOOKING</div>
+          <h3>Your place is ready.<br />We are ready.</h3>
+          <p>Pre-book online — no waiting. Choose your branch, service, and time. Confirm instantly via WhatsApp.</p>
+          <a class="btn-white" href="#book" style="margin-top:24px;display:inline-flex;">Book Appointment</a>
+        </div>
+        <div class="bento-cell span-8">
+          <div class="bento-num">03 — LOCATIONS</div>
+          <h3>Inside the world's finest hotels</h3>
+          <p>Sharp Look salons are located inside Hyatt Regency, Viewment, and Grand Hyatt — clean, comfortable, and impeccably fitted out.</p>
+        </div>
+        <div class="bento-cell span-4 img-cell">
+          <img src="assets/gallery-4.jpg" alt="Grooming experience" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="reveal">
+        <div class="section-label">SERVICES</div>
+        <h2 class="section-title">We provide<br /><em>better.</em></h2>
+        <p class="section-lead">Transparent pricing. World-class execution. Every service tailored to you.</p>
+      </div>
+      <div class="services-list reveal">
+        <div class="service-row">
+          <span class="service-num">01</span>
+          <h3>Hair Cut<small>قص شعر</small></h3>
+          <span class="service-dur">45 MIN</span>
+          <span class="service-price">100 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">02</span>
+          <h3>Hair Styling<small>تصفيف الشعر</small></h3>
+          <span class="service-dur">50 MIN</span>
+          <span class="service-price">120 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">03</span>
+          <h3>Beard Trim Styling<small>تنسيق الذقن</small></h3>
+          <span class="service-dur">30 MIN</span>
+          <span class="service-price">80 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">04</span>
+          <h3>Basic Care Package<small>باقة العناية الأساسية</small></h3>
+          <span class="service-dur">50 MIN</span>
+          <span class="service-price">100 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">05</span>
+          <h3>Advanced Care Package<small>باقة العناية المتقدمة</small></h3>
+          <span class="service-dur">1H 40M</span>
+          <span class="service-price">250 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">06</span>
+          <h3>VIP Private Room<small>غرفة VIP خاصة</small></h3>
+          <span class="service-dur">2 HRS</span>
+          <span class="service-price">350 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">07</span>
+          <h3>Facial Cleansing<small>تنظيف ومعالجة البشرة</small></h3>
+          <span class="service-dur">45 MIN</span>
+          <span class="service-price">150 SAR</span>
+        </div>
+        <div class="service-row">
+          <span class="service-num">08</span>
+          <h3>Home Service<small>خدمة منزلية</small></h3>
+          <span class="service-dur">1 HR</span>
+          <span class="service-price">200 SAR</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="book">
+      <div class="book-wrap reveal">
+        <div class="section-label" style="justify-content:center;">RESERVE</div>
+        <h2 class="section-title">احجز موعدك</h2>
+        <p class="section-lead">Choose branch, service & time — confirm via WhatsApp</p>
 
         <div class="book-widget">
           <div class="book-steps">
             <button type="button" class="book-step-tab active" data-step="0">
-              <span class="book-step-num">١</span>
-              الفرع والخدمة
+              <span class="book-step-num">01</span> الفرع &amp; الخدمة
             </button>
             <button type="button" class="book-step-tab" data-step="1">
-              <span class="book-step-num">٢</span>
-              التاريخ والوقت
+              <span class="book-step-num">02</span> التاريخ &amp; الوقت
             </button>
             <button type="button" class="book-step-tab" data-step="2">
-              <span class="book-step-num">٣</span>
-              تأكيد الحجز
+              <span class="book-step-num">03</span> التأكيد
             </button>
           </div>
-
           <div class="book-body">
             <div class="book-panel active" data-panel="0">
-              <p class="panel-title">اختر الفرع · Select Location</p>
+              <p class="panel-title">SELECT LOCATION</p>
               <div class="location-pick" id="locationPick"></div>
-
-              <p class="panel-title">اختر الخدمة · Select Service</p>
+              <p class="panel-title">SELECT SERVICE</p>
               <div class="service-options" id="serviceList"></div>
               <div class="book-nav">
-                <button type="button" class="btn-back hidden">رجوع</button>
-                <button type="button" class="btn-next" id="toStep2" disabled>
-                  التالي — اختر الوقت
-                </button>
+                <button type="button" class="btn-back hidden">BACK</button>
+                <button type="button" class="btn-next" id="toStep2" disabled>NEXT →</button>
               </div>
             </div>
-
             <div class="book-panel" data-panel="1">
-              <p class="panel-title">اختر اليوم · Select Date</p>
+              <p class="panel-title">SELECT DATE</p>
               <div class="date-grid" id="dateGrid"></div>
-              <p class="panel-title">اختر الوقت · Select Time</p>
+              <p class="panel-title">SELECT TIME</p>
               <div class="time-grid" id="timeGrid"></div>
               <div class="book-nav">
-                <button type="button" class="btn-back" id="backTo1">رجوع</button>
-                <button type="button" class="btn-next" id="toStep3" disabled>
-                  التالي — التأكيد
-                </button>
+                <button type="button" class="btn-back" id="backTo1">← BACK</button>
+                <button type="button" class="btn-next" id="toStep3" disabled>NEXT →</button>
               </div>
             </div>
-
             <div class="book-panel" data-panel="2">
-              <p class="panel-title">بياناتك · Your Details</p>
+              <p class="panel-title">YOUR DETAILS</p>
               <div class="summary-box" id="summaryBox"></div>
               <div class="form-grid">
                 <div class="form-field">
-                  <label for="clientName">الاسم · Name</label>
-                  <input type="text" id="clientName" placeholder="اسمك الكامل" />
+                  <label for="clientName">NAME</label>
+                  <input type="text" id="clientName" placeholder="Full name" />
                 </div>
                 <div class="form-field">
-                  <label for="clientPhone">الجوال · Phone</label>
+                  <label for="clientPhone">PHONE</label>
                   <input type="tel" id="clientPhone" placeholder="05xxxxxxxx" dir="ltr" />
                 </div>
                 <div class="form-field full">
-                  <label for="barberPref">الحلاق (اختياري)</label>
+                  <label for="barberPref">BARBER (OPTIONAL)</label>
                   <select id="barberPref">
-                    <option value="">أي حلاق متاح</option>
-                    <option value="عمر">عمر</option>
-                    <option value="محمد">محمد</option>
-                    <option value="أحمد">أحمد</option>
-                    <option value="ناجي">ناجي</option>
-                    <option value="محمود">محمود</option>
-                    <option value="إسلام">إسلام</option>
+                    <option value="">Any available</option>
+                    <option value="Omar">Omar · عمر</option>
+                    <option value="Mohammed">Mohammed · محمد</option>
+                    <option value="Ahmed">Ahmed · أحمد</option>
+                    <option value="Naji">Naji · ناجي</option>
+                    <option value="Mahmoud">Mahmoud · محمود</option>
+                    <option value="Islam">Islam · إسلام</option>
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn-confirm" id="confirmBook">
-                💬 تأكيد الحجز عبر واتساب
-              </button>
+              <button type="button" class="btn-confirm" id="confirmBook">💬 CONFIRM VIA WHATSAPP</button>
               <div class="book-nav">
-                <button type="button" class="btn-back" id="backTo2">رجوع</button>
+                <button type="button" class="btn-back" id="backTo2">← BACK</button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="services">
-        <div class="section-head">
-          <div class="section-tag">SERVICES</div>
-          <h2 class="section-title">خدماتنا</h2>
-          <p class="section-sub">We Provide Better — عناية شاملة للرجل العصري</p>
+    <!-- TEAM -->
+    <section class="section" id="team">
+      <div class="reveal">
+        <div class="section-label">THE TEAM</div>
+        <h2 class="section-title">Master<br /><em>craftsmen.</em></h2>
+      </div>
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-avatar">O</div>
+          <strong>Omar · عمر</strong>
+          <span>Most requested · Lebanese master</span>
         </div>
-        <div class="why-grid">
-          <div class="why-card">
-            <div class="why-icon">💇</div>
-            <h3>Hair Cut · قص شعر</h3>
-            <p>قصات عصرية وكلاسيكية — من SAR 100. حلاقة دقيقة تليق بك.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">🪒</div>
-            <h3>Beard Trim · تنسيق الذقن</h3>
-            <p>تشكيل وتنسيق احترافي للذقن مع عناية بالبشرة.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">✨</div>
-            <h3>Hair Styling · تصفيف</h3>
-            <p>تصفيف الشعر بمنتجات عالية الجودة — مظهر أنيق طوال اليوم.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">🧴</div>
-            <h3>Dry Shampoo · شامبو جاف</h3>
-            <p>عناية سريعة ومنعشة للشعر بين المواعيد.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">📦</div>
-            <h3>Basic Package · 100 ر.س</h3>
-            <p>باقة العناية الأساسية — 50 دقيقة، 3 خدمات. وفر 13%.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon">👑</div>
-            <h3>VIP Private Room</h3>
-            <p>غرفة خاصة فاخرة — تجربة حلاقة حصرية بكل خصوصية وراحة.</p>
-          </div>
+        <div class="team-card">
+          <div class="team-avatar">M</div>
+          <strong>Mohammed · محمد</strong>
+          <span>Hyatt Regency · 5★</span>
         </div>
-      </section>
+        <div class="team-card">
+          <div class="team-avatar">N</div>
+          <strong>Naji · ناجي</strong>
+          <span>Professional barber</span>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">H</div>
+          <strong>Mahmoud · محمود</strong>
+          <span>High professionalism</span>
+        </div>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="section-head">
-          <div class="section-tag">GALLERY</div>
-          <h2 class="section-title">الأجواء</h2>
-          <p class="section-sub">Clean, comfortable &amp; well fitted out</p>
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+      <div class="reveal">
+        <div class="section-label">TESTIMONIALS</div>
+        <h2 class="section-title">What clients<br /><em>say.</em></h2>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <div class="review-quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <q>الصالون جداً جميل وخصوصاً الحلاق عمر — يحلق الشخص ويطلع مستانس ورايق. استمروا وجيبوا حلاقين مثل هذا المبدع.</q>
+          <cite>— A A</cite>
         </div>
-        <div class="gallery-grid">
-          <img src="assets/hero.jpg" alt="Sharp Look salon interior" loading="lazy" />
-          <img src="assets/gallery-2.jpg" alt="Professional haircut" loading="lazy" />
-          <img src="assets/gallery-3.jpg" alt="Beard grooming" loading="lazy" />
-          <img src="assets/gallery-4.jpg" alt="Premium grooming" loading="lazy" />
+        <div class="review-card">
+          <div class="review-quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <q>Excellent, friendly and efficient service. Mohammed did a great job. Inside Grand Hyatt — well fitted out, very clean. Strongly recommend.</q>
+          <cite>— Yako Wijnands</cite>
         </div>
-      </section>
+        <div class="review-card">
+          <div class="review-quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <q>صالون رائع في فندق حياة ريجنسي — من التصميم والإطلالة إلى محمد: تعامل راقي، احترام، وعمل مُتقن بأدق التفاصيل.</q>
+          <cite>— Saud Saleh</cite>
+        </div>
+      </div>
+    </section>
 
-      <section class="section" id="team">
-        <div class="section-head">
-          <div class="section-tag">OUR TEAM</div>
-          <h2 class="section-title">فريقنا</h2>
-          <p class="section-sub">Craftsmen you can trust — حلاقون محترفون بخبرة عالية</p>
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+      <div class="cta-bg">
+        <img src="assets/hero.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="cta-content reveal">
+        <div class="section-label" style="justify-content:center;">VISIT US</div>
+        <h2 class="section-title">Ready for your<br /><em>Sharp Look?</em></h2>
+        <p>Saturday – Friday · 10 AM – 11 PM</p>
+        <a class="btn-white" href="https://wa.me/966569092914?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D9%8A%20Sharp%20Look">💬 WhatsApp Us</a>
+        <div class="cta-meta">
+          <span>📧 <a href="mailto:sharp.look.sa@gmail.com">sharp.look.sa@gmail.com</a></span>
+          <span>📞 <a href="tel:+966569092914">+966 56 909 2914</a></span>
+          <span>📸 <a href="https://instagram.com/sharp_look_sa" target="_blank" rel="noopener">@sharp_look_sa</a></span>
         </div>
-        <div class="team-grid">
-          <div class="team-card">
-            <div class="team-avatar">ع</div>
-            <strong>عمر</strong>
-            <span>حلاق مبدع · الأكثر طلباً</span>
-          </div>
-          <div class="team-card">
-            <div class="team-avatar">م</div>
-            <strong>محمد</strong>
-            <span>حلاق محترف · Hyatt Regency</span>
-          </div>
-          <div class="team-card">
-            <div class="team-avatar">ن</div>
-            <strong>ناجي</strong>
-            <span>Barber · 5★ rating</span>
-          </div>
-          <div class="team-card">
-            <div class="team-avatar">ح</div>
-            <strong>محمود</strong>
-            <span>Barber · خلق ومهنية عالية</span>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="reviews">
-        <div class="section-head">
-          <div class="section-tag">TESTIMONIALS</div>
-          <h2 class="section-title">آراء العملاء</h2>
-          <p class="section-sub">What Client Says — مراجعات حقيقية</p>
-        </div>
-        <div class="reviews-scroll">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <q>
-              الصالون جداً جميل وخصوصاً الحلاق اللبناني عمر — يحلق الشخص
-              ويطلع مستانس ورايق. استمروا وجيبوا حلاقين مثل هذا المبدع.
-            </q>
-            <cite>— A A</cite>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <q>
-              Excellent, friendly and efficient service. Mohammed did a great
-              job. Salon inside Grand Hyatt — well fitted out, very clean and
-              comfortable. Strongly recommend.
-            </q>
-            <cite>— Yako Wijnands</cite>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <q>
-              صالون رائع في الدور الثاني من فندق حياة ريجنسي العليا — من
-              التصميم والإطلالة إلى الحلاق محمد: تعامل راقي، احترام، وعمل
-              مُتقن بأدق التفاصيل.
-            </q>
-            <cite>— Saud Saleh</cite>
-          </div>
-        </div>
-      </section>
+    <footer>
+      <strong>SHARP LOOK</strong>
+      <span>© 2026 · Premium Barber Since 2003 · Riyadh & Al Khobar</span>
+    </footer>
 
-      <section class="section" id="contact">
-        <div class="contact-strip">
-          <h2>تواصل معنا</h2>
-          <p style="color: var(--muted)">
-            السبت – الجمعة · 10 ص – 11 م<br />
-            sharp.look.sa@gmail.com · +966 56 909 2914
-          </p>
-          <a
-            class="btn-primary"
-            href="https://wa.me/966569092914?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D9%8A%20Sharp%20Look"
-            style="display: inline-flex; margin-top: 8px"
-          >
-            💬 واتساب مباشر
-          </a>
-          <div class="social-row">
-            <a href="https://instagram.com/sharp_look_sa" target="_blank" rel="noopener">
-              📸 Instagram
-            </a>
-          </div>
-          <div class="contact-meta">
-            <span>📧 <a href="mailto:sharp.look.sa@gmail.com">sharp.look.sa@gmail.com</a></span>
-            <span>📞 <a href="tel:+966569092914">+966 56 909 2914</a></span>
-            <span>🇸🇦 الرياض &amp; الخبر</span>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        Sharp Look · شارب لوك · Premium Barber Since 2003 · Riyadh &amp; Al Khobar
-      </footer>
-    </div>
-
-    <a class="fab" href="#book" aria-label="احجز">📅</a>
+    <a class="fab" href="#book" aria-label="Book">📅</a>
 
     <script>
-      const WA = "966569092914";
+      /* Preloader */
+      window.addEventListener("load", () => {
+        setTimeout(() => document.getElementById("preloader").classList.add("done"), 900);
+      });
 
+      /* Header scroll */
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 60);
+      });
+
+      /* Scroll reveal */
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      /* Booking */
+      const WA = "966569092914";
       const locations = [
         { id: "olaya", ar: "الرياض — Hyatt Regency العليا", en: "Riyadh Olaya" },
         { id: "hittin", ar: "الرياض — Viewment Hotel", en: "Riyadh Hittin" },
         { id: "khobar", ar: "الخبر — Grand Hyatt", en: "Al Khobar" },
       ];
-
       const services = [
-        { id: "haircut", ar: "قص شعر", en: "Hair Cut", price: 100, dur: "45 د" },
-        { id: "styling", ar: "تصفيف الشعر", en: "Hair Styling", price: 120, dur: "50 د" },
-        { id: "beard", ar: "تنسيق الذقن", en: "Beard Trim Styling", price: 80, dur: "30 د" },
-        { id: "dry", ar: "شامبو جاف", en: "Dry Shampoo", price: 50, dur: "20 د" },
-        { id: "basic", ar: "باقة العناية الأساسية", en: "Basic Package", price: 100, dur: "50 د" },
-        { id: "advanced", ar: "باقة العناية المتقدمة", en: "Advanced Care", price: 250, dur: "1 س 40 د" },
-        { id: "facial", ar: "تنظيف ومعالجة البشرة", en: "Facial Cleansing", price: 150, dur: "45 د" },
-        { id: "vip", ar: "غرفة VIP خاصة", en: "VIP Private Room", price: 350, dur: "2 س" },
-        { id: "home", ar: "خدمة حلاقة منزلية", en: "Home Service", price: 200, dur: "1 س" },
+        { id: "haircut", ar: "قص شعر", en: "Hair Cut", price: 100, dur: "45 min" },
+        { id: "styling", ar: "تصفيف الشعر", en: "Hair Styling", price: 120, dur: "50 min" },
+        { id: "beard", ar: "تنسيق الذقن", en: "Beard Trim", price: 80, dur: "30 min" },
+        { id: "basic", ar: "باقة العناية الأساسية", en: "Basic Package", price: 100, dur: "50 min" },
+        { id: "advanced", ar: "باقة العناية المتقدمة", en: "Advanced Care", price: 250, dur: "1h 40m" },
+        { id: "facial", ar: "تنظيف البشرة", en: "Facial Cleansing", price: 150, dur: "45 min" },
+        { id: "vip", ar: "غرفة VIP", en: "VIP Room", price: 350, dur: "2 hrs" },
+        { id: "home", ar: "خدمة منزلية", en: "Home Service", price: 200, dur: "1 hr" },
       ];
+      const daysAr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      const daysArFull = ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 
-      const daysAr = ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
-
-      let selectedLocation = null;
-      let selectedService = null;
-      let selectedDate = null;
-      let selectedTime = null;
+      let selectedLocation = null, selectedService = null, selectedDate = null, selectedTime = null;
 
       const locationPick = document.getElementById("locationPick");
       const serviceList = document.getElementById("serviceList");
@@ -1531,13 +1455,7 @@
       locations.forEach((loc) => {
         const label = document.createElement("label");
         label.className = "loc-opt";
-        label.innerHTML = `
-          <input type="radio" name="location" value="${loc.id}" />
-          <span class="loc-opt-box">
-            <strong>${loc.en}</strong>
-            <small>${loc.ar}</small>
-          </span>
-        `;
+        label.innerHTML = `<input type="radio" name="location" value="${loc.id}" /><span class="loc-opt-box"><strong>${loc.en}</strong><small>${loc.ar}</small></span>`;
         label.querySelector("input").addEventListener("change", () => {
           document.querySelectorAll(".loc-opt").forEach((el) => el.classList.remove("selected"));
           label.classList.add("selected");
@@ -1550,18 +1468,7 @@
       services.forEach((s) => {
         const label = document.createElement("label");
         label.className = "service-opt";
-        label.innerHTML = `
-          <input type="radio" name="service" value="${s.id}" />
-          <span class="service-radio"></span>
-          <span class="service-info">
-            <strong>${s.ar}</strong>
-            <small>${s.en} · ${s.dur}</small>
-          </span>
-          <span class="service-price">
-            <em>${s.price} ر.س</em>
-            <span>Book</span>
-          </span>
-        `;
+        label.innerHTML = `<input type="radio" name="service" value="${s.id}" /><span class="service-radio"></span><span class="service-info"><strong>${s.en}</strong><small>${s.ar} · ${s.dur}</small></span><span class="service-price"><em>${s.price}</em></span>`;
         label.querySelector("input").addEventListener("change", () => {
           document.querySelectorAll(".service-opt").forEach((el) => el.classList.remove("selected"));
           label.classList.add("selected");
@@ -1585,14 +1492,10 @@
           btn.type = "button";
           btn.className = "date-btn";
           btn.innerHTML = `<strong>${d.getDate()}</strong><span>${daysAr[d.getDay()]}</span>`;
-          btn.dataset.iso = d.toISOString().slice(0, 10);
           btn.addEventListener("click", () => {
             document.querySelectorAll(".date-btn").forEach((b) => b.classList.remove("selected"));
             btn.classList.add("selected");
-            selectedDate = {
-              iso: btn.dataset.iso,
-              label: `${daysAr[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}`,
-            };
+            selectedDate = { label: `${daysArFull[d.getDay()]} ${d.getDate()}/${d.getMonth()+1}` };
             checkStep2();
           });
           dateGrid.appendChild(btn);
@@ -1604,8 +1507,8 @@
         for (let h = 10; h <= 22; h++) {
           for (const m of [0, 30]) {
             if (h === 22 && m === 30) continue;
-            const hh = h > 12 ? h - 12 : h === 0 ? 12 : h;
-            const ampm = h >= 12 ? "م" : "ص";
+            const hh = h > 12 ? h - 12 : h;
+            const ampm = h >= 12 ? "PM" : "AM";
             const label = `${hh}:${m === 0 ? "00" : "30"} ${ampm}`;
             const btn = document.createElement("button");
             btn.type = "button";
@@ -1632,20 +1535,17 @@
         document.querySelectorAll(".book-step-tab").forEach((t) => {
           const i = +t.dataset.step;
           t.classList.toggle("active", i === n);
-          t.classList.toggle("done", i < n);
         });
         if (n === 2) updateSummary();
       }
 
       function updateSummary() {
-        if (!selectedService || !selectedLocation) return;
         summaryBox.innerHTML = `
-          <div class="summary-row"><span>الفرع</span><strong>${selectedLocation.ar}</strong></div>
-          <div class="summary-row"><span>الخدمة</span><strong>${selectedService.ar}</strong></div>
-          <div class="summary-row"><span>السعر</span><strong>${selectedService.price} ر.س</strong></div>
-          <div class="summary-row"><span>التاريخ</span><strong>${selectedDate?.label || "—"}</strong></div>
-          <div class="summary-row"><span>الوقت</span><strong>${selectedTime || "—"}</strong></div>
-        `;
+          <div class="summary-row"><span>Branch</span><strong>${selectedLocation.ar}</strong></div>
+          <div class="summary-row"><span>Service</span><strong>${selectedService.en}</strong></div>
+          <div class="summary-row"><span>Price</span><strong>${selectedService.price} SAR</strong></div>
+          <div class="summary-row"><span>Date</span><strong>${selectedDate?.label || "—"}</strong></div>
+          <div class="summary-row"><span>Time</span><strong>${selectedTime || "—"}</strong></div>`;
       }
 
       document.getElementById("toStep2").addEventListener("click", () => goStep(1));
@@ -1657,19 +1557,16 @@
         const name = document.getElementById("clientName").value.trim();
         const phone = document.getElementById("clientPhone").value.trim();
         const barber = document.getElementById("barberPref").value;
-        if (!name || !phone) {
-          alert("يرجى إدخال الاسم ورقم الجوال");
-          return;
-        }
-        let msg = `السلام عليكم، أبغى أحجز موعد في Sharp Look:\n\n`;
-        msg += `📍 الفرع: ${selectedLocation.ar}\n`;
-        msg += `📋 الخدمة: ${selectedService.ar}\n`;
-        msg += `💰 السعر: ${selectedService.price} ر.س\n`;
-        msg += `📅 التاريخ: ${selectedDate.label}\n`;
-        msg += `🕐 الوقت: ${selectedTime}\n`;
-        msg += `👤 الاسم: ${name}\n`;
-        msg += `📱 الجوال: ${phone}\n`;
-        if (barber) msg += `✂️ الحلاق: ${barber}\n`;
+        if (!name || !phone) { alert("Please enter name and phone"); return; }
+        let msg = `Hi, I'd like to book at Sharp Look:\n\n`;
+        msg += `📍 Branch: ${selectedLocation.ar}\n`;
+        msg += `📋 Service: ${selectedService.en}\n`;
+        msg += `💰 Price: ${selectedService.price} SAR\n`;
+        msg += `📅 Date: ${selectedDate.label}\n`;
+        msg += `🕐 Time: ${selectedTime}\n`;
+        msg += `👤 Name: ${name}\n`;
+        msg += `📱 Phone: ${phone}\n`;
+        if (barber) msg += `✂️ Barber: ${barber}\n`;
         window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
       });
 
