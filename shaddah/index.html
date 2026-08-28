@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>صالون شدة | SHADDAH SALON — حلاقة رجالية في جدة</title>
+    <meta
+      name="description"
+      content="صالون شدة للحلاقة الرجالية في حي السلامة، جدة. قص شعر، حلاقة ذقن، باقات العناية، وتنظيف بشرة. تقييم 4.8 — احجز عبر واتساب."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0c;
+        --surface: #141418;
+        --surface-soft: #1c1c22;
+        --text: #f5f5f7;
+        --muted: #9b9ba8;
+        --line: #2a2a32;
+        --gold: #e8b923;
+        --gold-soft: rgba(232, 185, 35, 0.12);
+        --wa: #25d366;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 45% at 50% -5%,
+          rgba(232, 185, 35, 0.07),
+          transparent
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--gold);
+      }
+
+      .btn-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--wa);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.92rem;
+        padding: 11px 20px;
+        border-radius: 10px;
+        white-space: nowrap;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+
+      .btn-wa:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
+      }
+
+      .hero {
+        padding: 48px 0 64px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--gold-soft);
+        color: var(--gold);
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(232, 185, 35, 0.2);
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .hero-sub {
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 1.02rem;
+        max-width: 32rem;
+        margin-bottom: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: linear-gradient(135deg, #e8b923, #c99a1a);
+        color: #0a0a0a;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 14px 28px;
+        border-radius: 10px;
+      }
+
+      .btn-outline {
+        display: inline-block;
+        color: var(--text);
+        border: 1px solid var(--line);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 10px;
+        background: transparent;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        background: var(--gold-soft);
+      }
+
+      .hero-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 400px;
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 10, 12, 0.92) 0%,
+          rgba(10, 10, 12, 0.25) 55%,
+          transparent 100%
+        );
+      }
+
+      .hero-card-content {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 28px;
+      }
+
+      .hero-card-content .tag {
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .hero-card-content strong {
+        font-size: 1.35rem;
+        display: block;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      .section-sub {
+        color: var(--muted);
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: 0.95rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 48px;
+      }
+
+      .stat {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+
+      .stat span {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+      }
+
+      .packages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+
+      .package {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+
+      .package.featured {
+        border-color: rgba(232, 185, 35, 0.45);
+        box-shadow: 0 0 40px rgba(232, 185, 35, 0.08);
+      }
+
+      .package-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+
+      .package h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+
+      .package ul {
+        list-style: none;
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-bottom: 16px;
+      }
+
+      .package li {
+        padding: 4px 0;
+        padding-right: 16px;
+        position: relative;
+      }
+
+      .package li::before {
+        content: "✓";
+        position: absolute;
+        right: 0;
+        color: var(--gold);
+        font-size: 0.75rem;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .price {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+
+      .duration {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+      }
+
+      .service-item {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .service-item strong {
+        display: block;
+        font-size: 0.92rem;
+        margin-bottom: 4px;
+      }
+
+      .service-item small {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .service-item em {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--gold);
+        white-space: nowrap;
+        font-size: 0.95rem;
+      }
+
+      .team {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+      }
+
+      .barber {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+        text-align: center;
+      }
+
+      .barber-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--gold-soft);
+        color: var(--gold);
+        border: 1px solid rgba(232, 185, 35, 0.25);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 0 auto 12px;
+      }
+
+      .barber strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .barber span {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .reviews {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 14px;
+      }
+
+      .review {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+      }
+
+      .review-stars {
+        color: var(--gold);
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .review q {
+        display: block;
+        color: var(--muted);
+        font-size: 0.92rem;
+        quotes: none;
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+
+      .review cite {
+        font-style: normal;
+        font-size: 0.82rem;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .contact-box {
+        background: var(--surface);
+        border: 1px solid rgba(232, 185, 35, 0.25);
+        border-radius: 18px;
+        padding: 36px 28px;
+        text-align: center;
+      }
+
+      .contact-box h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+
+      .contact-box p {
+        color: var(--muted);
+        margin-bottom: 24px;
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 32px;
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .contact-details a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      footer {
+        text-align: center;
+        padding: 32px 0 48px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 32px;
+        }
+
+        .hero-card {
+          min-height: 280px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .btn-wa span.hide-mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="logo">صالون <span>شدة</span></div>
+        <nav>
+          <a href="#about">عن الصالون</a>
+          <a href="#packages">الباقات</a>
+          <a href="#services">الخدمات</a>
+          <a href="#team">الفريق</a>
+          <a href="#reviews">التقييمات</a>
+          <a href="#contact">تواصل</a>
+        </nav>
+        <a
+          class="btn-wa"
+          href="https://wa.me/966560094129?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D9%8A%20%D8%B5%D8%A7%D9%84%D9%88%D9%86%20%D8%B4%D8%AF%D8%A9"
+        >
+          <span>💬</span>
+          <span class="hide-mobile">احجز واتساب</span>
+        </a>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="badge">⭐ 4.8 · أكثر من 207 تقييم · جدة</div>
+          <h1>صالون شدة<br />SHADDAH SALON</h1>
+          <p class="hero-sub">نورت في صالونك</p>
+          <p>
+            تجربة حلاقة رجالية فاخرة في حي السلامة — قصات عصرية، حلاقة ذقن
+            احترافية، وعناية بالبشرة والشعر بمنتجات عالية الجودة.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn-primary"
+              href="https://wa.me/966560094129?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D9%8A%20%D8%B5%D8%A7%D9%84%D9%88%D9%86%20%D8%B4%D8%AF%D8%A9"
+              >احجز موعدك</a
+            >
+            <a class="btn-outline" href="#packages">شاهد الباقات</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80"
+            alt="صالون شدة للحلاقة"
+            loading="eager"
+          />
+          <div class="hero-card-overlay"></div>
+          <div class="hero-card-content">
+            <div class="tag">مفتوح اليوم حتى 11:45 م</div>
+            <strong>قص شعر + ذقن — 60 ر.س</strong>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>4.8</strong>
+          <span>تقييم Google</span>
+        </div>
+        <div class="stat">
+          <strong>207+</strong>
+          <span>مراجعة من عملاء</span>
+        </div>
+        <div class="stat">
+          <strong>2م – 11:45م</strong>
+          <span>يومياً · السلامة</span>
+        </div>
+      </div>
+
+      <section id="about">
+        <h2 class="section-title">عن صالون شدة</h2>
+        <p class="section-sub">
+          أكثر من مجرد حلاقة — وجهتك للعناية الرجالية الشاملة في جدة
+        </p>
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1622286342621-4bd786a91797?auto=format&fit=crop&w=600&q=80"
+            alt="قص شعر احترافي"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1503950197899-0a680227f627?auto=format&fit=crop&w=600&q=80"
+            alt="عناية بالذقن"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1599351431200-1a0ad3596225?auto=format&fit=crop&w=600&q=80"
+            alt="تنظيف بشرة"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section id="packages">
+        <h2 class="section-title">باقات شدة</h2>
+        <p class="section-sub">باقات متكاملة بأسعار واضحة — اختر ما يناسبك</p>
+        <div class="packages">
+          <div class="package">
+            <div class="package-label">باقة 1</div>
+            <h3>باقة شدة 1</h3>
+            <ul>
+              <li>قص شعر</li>
+              <li>حلاقة ذقن</li>
+              <li>ماسك البحر الميت (منتج أمريكي)</li>
+            </ul>
+            <div class="price-row">
+              <span class="price">75 ر.س</span>
+              <span class="duration">1 س 15 د</span>
+            </div>
+          </div>
+          <div class="package featured">
+            <div class="package-label">الأكثر طلباً</div>
+            <h3>باقة شدة 2</h3>
+            <ul>
+              <li>قص شعر + حلاقة ذقن</li>
+              <li>ماسك البحر الميت</li>
+              <li>حمام زيت للشعر</li>
+            </ul>
+            <div class="price-row">
+              <span class="price">85 ر.س</span>
+              <span class="duration">1 س 30 د</span>
+            </div>
+          </div>
+          <div class="package">
+            <div class="package-label">باقة 3</div>
+            <h3>باقة شدة 3</h3>
+            <ul>
+              <li>قص شعر + حلاقة ذقن</li>
+              <li>تنظيف بشرة عادي</li>
+            </ul>
+            <div class="price-row">
+              <span class="price">90 ر.س</span>
+              <span class="duration">1 س 30 د</span>
+            </div>
+          </div>
+          <div class="package">
+            <div class="package-label">VIP</div>
+            <h3>باقة شدة 4</h3>
+            <ul>
+              <li>قص شعر + حلاقة ذقن</li>
+              <li>حمام زيت بالبخار</li>
+              <li>تنظيف بشرة فاخر</li>
+              <li>صنفرة فحم · ماسك العيون · فيتامين · مرطب</li>
+            </ul>
+            <div class="price-row">
+              <span class="price">170 ر.س</span>
+              <span class="duration">1 س 40 د</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 class="section-title">الخدمات</h2>
+        <p class="section-sub">أسعار شفافة — بدون مفاجآت</p>
+        <div class="services-grid">
+          <div class="service-item">
+            <div>
+              <strong>قص شعر وذقن</strong>
+              <small>Haircut & Beard · 1 س</small>
+            </div>
+            <em>60 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>قص شعر</strong>
+              <small>Haircut · 30 د</small>
+            </div>
+            <em>30 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>حلاقة ذقن</strong>
+              <small>Beard Shave · 30 د</small>
+            </div>
+            <em>30 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>شدة بشرة</strong>
+              <small>SHADDAH SKIN · 45 د</small>
+            </div>
+            <em>110 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>تنظيف بشرة كامل</strong>
+              <small>Full Face Cleansing · 35 د</small>
+            </div>
+            <em>85 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>حمام زيت بالبخار</strong>
+              <small>Steam Oil Hair Bath · 35 د</small>
+            </div>
+            <em>45 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>حمام زيت للشعر</strong>
+              <small>Hair Oil Bath · 20 د</small>
+            </div>
+            <em>30 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>صنفرة وجه بالبخار</strong>
+              <small>Steam Face Scrub · 30 د</small>
+            </div>
+            <em>35 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>سشوار</strong>
+              <small>Blow Dry · 20 د</small>
+            </div>
+            <em>20 ر.س</em>
+          </div>
+          <div class="service-item">
+            <div>
+              <strong>قناع وجه خاص</strong>
+              <small>Face Mask · 25 د</small>
+            </div>
+            <em>25 ر.س</em>
+          </div>
+        </div>
+      </section>
+
+      <section id="team">
+        <h2 class="section-title">فريقنا</h2>
+        <p class="section-sub">حلاقون محترفون — يثق بنا عملاؤنا</p>
+        <div class="team">
+          <div class="barber">
+            <div class="barber-avatar">ز</div>
+            <strong>زكرياء</strong>
+            <span>حلاق مميز · الأكثر طلباً</span>
+          </div>
+          <div class="barber">
+            <div class="barber-avatar">ي</div>
+            <strong>يونس</strong>
+            <span>حلاق محترف</span>
+          </div>
+          <div class="barber">
+            <div class="barber-avatar">ه</div>
+            <strong>هيتم</strong>
+            <span>حلاق محترف</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+        <p class="section-sub">مراجعات حقيقية من Google</p>
+        <div class="reviews">
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <q>
+              ما شاء الله أفضل حلاقين في جدة — كلهم محترفين. زكريا ويونس
+              وهيتم.
+            </q>
+            <cite>— Zakaria Zakour</cite>
+          </div>
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <q>
+              زكرياء ما شاء الله، يدك شغلها احترافي. الحلاقة طلعت فخمة جداً —
+              أكيد برجع لك مرة ثانية.
+            </q>
+            <cite>— Ayoub Zakour</cite>
+          </div>
+          <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <q>
+              أفضل مكان للحلاقة في جدة وخصوصاً للحلاق زكرياء — استثنائي ما
+              شاء الله.
+            </q>
+            <cite>— Ahmed Bouhaza</cite>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-box">
+          <h2>احجز موعدك الآن</h2>
+          <p>
+            صالون شدة — حي السلامة، جدة. مفتوح يومياً من 2 مساءً حتى 11:45
+            مساءً.
+          </p>
+          <a
+            class="btn-wa"
+            href="https://wa.me/966560094129?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%A8%D8%BA%D9%89%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D9%8A%20%D8%B5%D8%A7%D9%84%D9%88%D9%86%20%D8%B4%D8%AF%D8%A9"
+            style="font-size: 1rem; padding: 14px 32px"
+          >
+            💬 احجز عبر واتساب
+          </a>
+          <div class="contact-details">
+            <span
+              >📍 حي السلامة، جدة 23436<br /><a
+                href="https://maps.app.goo.gl/UTzfQyUFoD5oRBfz8"
+                target="_blank"
+                rel="noopener"
+                >عرض على الخريطة</a
+              ></span
+            >
+            <span
+              >📞
+              <a href="tel:+966560094129">+966 56 009 4129</a></span
+            >
+            <span
+              >✉️
+              <a href="mailto:shaddahsaloon@gmail.com"
+                >shaddahsaloon@gmail.com</a
+              ></span
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        صالون شدة · SHADDAH SALON · جدة · حي السلامة
+      </footer>
+    </div>
+  </body>
+</html>
