@@ -769,24 +769,19 @@
         margin-bottom: 14px;
       }
 
-      .gallery-row {
+      .gallery-grid {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
-        height: 360px;
       }
 
-      .gallery-row img {
+      .gallery-grid img {
         width: 100%;
-        height: 100%;
+        height: 260px;
         object-fit: cover;
         border-radius: var(--radius);
         border: 1px solid var(--line);
-      }
-
-      .gallery-side {
-        display: grid;
-        gap: 12px;
+        display: block;
       }
 
       .contact-strip {
@@ -875,17 +870,12 @@
           grid-template-columns: 1fr;
         }
 
-        .gallery-row {
+        .gallery-grid {
           grid-template-columns: 1fr;
-          height: auto;
         }
 
-        .gallery-row img {
-          height: 200px;
-        }
-
-        .gallery-side {
-          grid-template-columns: 1fr 1fr;
+        .gallery-grid img {
+          height: 220px;
         }
       }
     </style>
@@ -1037,24 +1027,27 @@
       <section class="block">
         <h2 class="block-title">الأجواء</h2>
         <p class="block-sub">Luxury grooming experience</p>
-        <div class="gallery-row">
+        <div class="gallery-grid">
           <img
-            src="https://images.unsplash.com/photo-1622286342621-4bd786a91797?auto=format&fit=crop&w=800&q=80"
-            alt="حلاقة احترافية"
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80"
+            alt="صالون شدة — حلاقة رجالية"
             loading="lazy"
           />
-          <div class="gallery-side">
-            <img
-              src="https://images.unsplash.com/photo-1503950197899-0a680227f627?auto=format&fit=crop&w=400&q=80"
-              alt="عناية"
-              loading="lazy"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1599351431200-1a0ad3596225?auto=format&fit=crop&w=400&q=80"
-              alt="بشرة"
-              loading="lazy"
-            />
-          </div>
+          <img
+            src="https://images.unsplash.com/photo-1622286342621-4bd786a91797?auto=format&fit=crop&w=600&q=80"
+            alt="قص شعر احترافي"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1503950197899-0a680227f627?auto=format&fit=crop&w=600&q=80"
+            alt="عناية بالذقن"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1599351431200-1a0ad3596225?auto=format&fit=crop&w=600&q=80"
+            alt="تنظيف بشرة"
+            loading="lazy"
+          />
         </div>
       </section>
 
